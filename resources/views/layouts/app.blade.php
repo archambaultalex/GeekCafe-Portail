@@ -39,7 +39,7 @@
                         &nbsp;
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    <!-- Right Side Of Navbar Test -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
