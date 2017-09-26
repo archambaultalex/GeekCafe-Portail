@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password', 'gender', 'birth_date', 'phone',
+        'first_name', 'last_name', 'email', 'password', 'gender', 'birth_date', 'phone', 'image_id',
     ];
 
     /**
@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    public function image()
+    {
+        return $this->hasOne('App\Image');
+    }
 }
