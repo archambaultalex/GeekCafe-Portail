@@ -7,6 +7,7 @@
  */
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 use App\User;
 
 
@@ -17,9 +18,20 @@ class ProfileController extends Controller
         $this->middleware('auth');
     }
 
+    public function index()
+    {
+
+    }
+
     public function edit($id)
     {
         $profile = User::findOrFail($id);
         return view('profile.edit_profile',compact('profile'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        User::findOrFail($id)->update($request->all());
+        return redirect('/home');
     }
 }
