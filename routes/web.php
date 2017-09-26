@@ -24,3 +24,5 @@ Route::get('/logout', function(){
     session_destroy();
     return view('auth/login');
 });
+
+Route::resource('/profile','ProfileController');
