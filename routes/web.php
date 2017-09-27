@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+use App\Image;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,4 +25,18 @@ Route::get('/logout', function(){
     session_start();
     session_destroy();
     return view('auth/login');
+});
+
+Route::resource('/profile','ProfileController');
+
+Route::get('/test', function(){
+
+    return view('layouts.app');
+
+});
+
+Route::get('/imagetest', function(){
+
+    return User::findOrFail(1)->image()->id;
+
 });

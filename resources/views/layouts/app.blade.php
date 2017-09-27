@@ -39,19 +39,35 @@
                         &nbsp;
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    <!-- Right Side Of Navbar Test -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
+
                         @else
+
+                            <li>
+                                <a href="{{ route('home') }}" class="" >
+                                    Dashboard
+                                </a>
+                            </li>
+
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->first_name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+
+                                    <li>
+                                        <a href="{{ route('profile.edit',Auth::user()->id) }}">
+                                            Profile
+                                        </a>
+
+                                    </li>
+
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -63,15 +79,24 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+
+
                                 </ul>
                             </li>
+
                         @endif
                     </ul>
+
                 </div>
             </div>
         </nav>
 
-        @yield('content')
+        <div class="col-md-1">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">@yield('content')</div>
+        </div>
+
+
     </div>
 
     <!-- Scripts -->
