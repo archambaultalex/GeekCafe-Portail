@@ -8,13 +8,27 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    <a href="">Inventaire</a>
+                </div>
 
-                    You are logged in!
+                <div class="panel-body">
+                    <a href="">Ventes</a>
+                </div>
+
+                <div class="panel-body">
+                    <a href="">Utilisateurs</a>
+                </div>
+
+                <div class="panel-body">
+                    <a href="">Employés</a>
+                </div>
+
+                <div class="panel-body">
+                    <a href="">Promotions</a>
+                </div>
+
+                <div class="panel-body">
+                    <a href="">Commandes</a>
                 </div>
             </div>
         </div>
