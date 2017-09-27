@@ -34,9 +34,3 @@ Route::get('/test', function(){
     return view('layouts.app');
 
 });
-
-Route::get('/imagetest', function(){
-
-    return User::findOrFail(1)->image()->id;
-
-});

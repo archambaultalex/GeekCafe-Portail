@@ -9,7 +9,7 @@
                     <div class="panel-heading">Register</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{ route('profile.update',$profile->id) }}">
+                        <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('profile.update',$profile->id) }}">
                             {{ csrf_field() }}
 
                             <input type="hidden" name="_method" value="PUT"/>
@@ -106,7 +106,7 @@
                                 <label for="image" class="col-md-4 control-label">Image</label>
 
                                 <div class="col-md-6">
-                                    <input class="form-control" type="file" id="image" name="filename" accept="image/gif, image/jpeg, image/png">
+                                    <input class="form-control" type="file" id="image" name="image" accept="image/jpeg, image/png">
                                 </div>
                             </div>
 
