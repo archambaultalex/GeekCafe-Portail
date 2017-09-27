@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="panel-body">
-                    <a href="">Ventes</a>
+                    <a href="{{route('ventes')}}">Ventes</a>
                 </div>
 
                 <div class="panel-body">
@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="panel-body">
-                    <a href="">Commandes</a>
+                    <a href="{{'commandes'}}">Commandes</a>
                 </div>
             </div>
         </div>
