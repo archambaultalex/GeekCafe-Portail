@@ -21,7 +21,7 @@ class ProfileController extends Controller
 
     public function index()
     {
-            //test
+            //testdsadsadadsa
     }
 
     public function edit($id)
