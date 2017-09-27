@@ -3,12 +3,11 @@
 namespace App;
 use Illuminate\Database\Eloquent\Model;
 
-class Image extends Model
+class ItemType extends Model
 {
     public $incrementing = false;
     protected $fillable = [
-      'image', 'id'
     ];
-    protected $table = 'images';
+    protected $table = 'item_types';
     protected $primaryKey = 'id';
 }
