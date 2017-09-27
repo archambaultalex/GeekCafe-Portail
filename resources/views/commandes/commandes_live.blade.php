@@ -11,21 +11,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>4</td>
-                <td>12.50$</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>1</td>
-                <td>4.50$</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>2</td>
-                <td>9.00$</td>
-            </tr>
+            @foreach($user as $users)
+                <tr>
+            <td>{{$users->first_name}}</td>
+            <td>{{$users->last_name}}</td>
+            <td>{{$users->email}}</td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
