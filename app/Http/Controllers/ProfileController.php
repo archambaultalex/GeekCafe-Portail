@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
+use App\Image;
 
 
 class ProfileController extends Controller
@@ -31,7 +32,12 @@ class ProfileController extends Controller
 
     public function update(Request $request, $id)
     {
-        User::findOrFail($id)->update($request->all());
+        $encoded = base64_encode(file_get_contents($request->image->getrealpath()));
+        $uniquid = uniqid();
+        Image::create(['id'=>$uniquid,'image'=>$encoded]);
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+        $user->update(['image_id'=>$uniquid]);
         return redirect('/home');
     }
 }

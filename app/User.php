@@ -29,6 +29,6 @@ class User extends Authenticatable
 
     public function image()
     {
-        return $this->hasOne('App\Image');
+        return $this->belongsTo('App\Image');
     }
 }
