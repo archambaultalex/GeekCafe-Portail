@@ -34,3 +34,7 @@ Route::get('/test', function(){
     return view('layouts.app');
 
 });
+
+Route::get('/ventes','VenteController@index')->name('ventes');
+
+Route::get('/commandes','CommandeController@index')->name('commandes');
