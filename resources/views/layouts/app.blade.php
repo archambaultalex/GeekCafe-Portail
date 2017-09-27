@@ -55,6 +55,7 @@
                             </li>
 
                             <li class="dropdown">
+                                {{--<img style="float:left; max-width:15%;vertical-align: top" src="data:image/png;base64,{{Auth::user()->image->image}}"/>--}}
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->first_name }} <span class="caret"></span>
                                 </a>
