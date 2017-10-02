@@ -22,6 +22,7 @@ class CreateItemsTable extends Migration
           $table->string('image_id');
           $table->foreign('image_id')->references('id')->on('images');
           $table->integer('quantity')->nullable();
+          $table->date('peremption');
           $table->timestamps();
           $table->softDeletes();
         });

@@ -8,7 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    <a href="">Inventaire</a>
+                    <a href="{{route('inventaire')}}">Inventaire</a>
                 </div>
 
                 <div class="panel-body">
