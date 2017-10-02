@@ -38,3 +38,5 @@ Route::get('/test', function(){
 Route::get('/ventes','VenteController@index')->name('ventes');
 
 Route::get('/commandes','CommandeController@index')->name('commandes');
+
+Route::get('/inventaire','InventaireController@index')->name('inventaire');
