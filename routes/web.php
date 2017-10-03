@@ -55,3 +55,5 @@ Route::get('/items/{idItem}/price','ItemPriceController@index')->name('price')->
 
 
 Route::resource('/promotions','PromotionController');
+
+Route::get('/promotions/create/{$id}','PromotionController@creation');
