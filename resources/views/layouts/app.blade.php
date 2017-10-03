@@ -28,7 +28,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/home') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
@@ -92,10 +92,9 @@
             </div>
         </nav>
 
-        <div class="col-md-1">
-            <div class="col-md-4"></div>
-            <div class="col-md-8">@yield('content')</div>
-        </div>
+
+        @yield('content')
+
 
 
     </div>

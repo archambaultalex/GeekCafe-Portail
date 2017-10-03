@@ -121,20 +121,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="image" class="col-md-4 control-label">Image</label>
-
-                            <div class="col-md-6">
-
-                                <input class="form-control" type="file" id="image" name="image" accept="image/jpeg, image/png">
-                                @if ($errors->has('image'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('image') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Register

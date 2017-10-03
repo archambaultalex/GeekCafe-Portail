@@ -1,34 +1,22 @@
 <?php
 
 namespace App;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\CanResetPassword;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
+use Illuminate\Auth\Passwords\CanResetPassword as CanResetPasswordTrait;
+use Illuminate\Notifications\Notifiable as NotifiableTrait;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-
-class User extends Authenticatable
+class User extends Model implements Authenticatable, CanResetPassword
 {
-    use Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    use AuthenticableTrait, CanResetPasswordTrait, NotifiableTrait;
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password', 'gender', 'birth_date', 'phone', 'image_id',
+        'first_name', 'last_name', 'email', 'password', 'gender', 'birth_date', 'phone', 'device_token', 'image_id', 'facebook_id'
     ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password',
     ];
-
-    public function image()
-    {
-        return $this->belongsTo('App\Image');
-    }
+    protected $table = 'users';
+    protected $primaryKey = 'id';
 }
