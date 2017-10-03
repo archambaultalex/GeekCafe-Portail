@@ -39,4 +39,19 @@ Route::get('/ventes','VenteController@index')->name('ventes')->middleware('auth'
 
 Route::get('/commandes','CommandeController@index')->name('commandes')->middleware('auth');
 
-Route::get('/inventaire','InventaireController@index')->name('inventaire')->middleware('auth');
+
+
+Route::get('/inventaire','inventaireController@index')->name('inventaire')->middleware('auth');
+
+Route::get('/items','ItemController@index')->name('items')->middleware('auth');
+
+Route::get('/items/{idItem}/price','ItemPriceController@index')->name('price')->middleware('auth');
+
+Route::get('/items/{idItem}/size','ItemSizeController@index')->name('size')->middleware('auth');
+
+Route::get('/items/{idItem}/subitem','ItemSubitemController@index')->name('subitem')->middleware('auth');
+
+Route::get('/items/{idItem}/price','ItemPriceController@index')->name('price')->middleware('auth');
+
+
+Route::resource('/promotions','PromotionController');

@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
           $table->string('stripe_cus', 300)->nullable();
           $table->string('image_id')->default(1);
           $table->foreign('image_id')->references('id')->on('images');
+          $table->string('remember_token')->nullable();
           $table->timestamps();
           $table->softDeletes();
         });
