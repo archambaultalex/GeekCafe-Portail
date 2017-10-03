@@ -20,7 +20,6 @@ class ItemsTableSeeder extends Seeder {
             'type_id' => 1,
             'image_id' => rand(2, 110),
              'quantity' => rand(0,365),
-             'peremption' => $faker->date(),
          ]);
      }
      $pastries = ['Muffin au caramel', 'Muffin aux fraises', 'Muffin au chocolat', 'Croissant au beurre'];
@@ -31,7 +30,6 @@ class ItemsTableSeeder extends Seeder {
           'type_id' => 2,
           'image_id' => rand(2, 110),
            'quantity' => rand(0,365),
-           'peremption' => $faker->date(),
        ]);
      }
      Item::create([
@@ -40,7 +38,6 @@ class ItemsTableSeeder extends Seeder {
         'type_id' => 3,
         'image_id' => rand(2, 110),
          'quantity' => rand(0,365),
-         'peremption' => $faker->date(),
      ]);
   }
 }

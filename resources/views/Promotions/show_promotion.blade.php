@@ -2,32 +2,38 @@
 
 @section('content')
     <?php
-            use App\Image;
-            use App\ItemType;
-            ?>
+    use App\Image;
+    use App\ItemType;
+    use App\Item;
+    ?>
+
     <div class="container">
-        <h1>Inventaire</h1>
+        <h1>Promotions</h1>
         <table class="table table-striped" id="myTable">
             <thead>
             <tr>
-                <th>Image</th>
-                <th style="cursor:pointer" onclick="sortTableAlpha()">Item<i id="sortIcon" class="glyphicon glyphicon-chevron-up"></i></th>
                 <th>Description</th>
-                <th>Type</th>
-                <th>Quantité</th>
+                <th>Item associé</th>
+                <th>NB/Utilisateurs</th>
+                <th>Réduction</th>
+                <th>Début</th>
+                <th>Fin</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($items as $row)
-            <tr>
-                <td><img style="max-width: 40%;" src="{{Image::findOrFail($row['image_id'])->image}}"/></td>
-                <td class="nameTd">{{$row['name']}}</td>
-                <td>{{$row['description']}}</td>
-                <td>{{ItemType::findOrFail($row['type_id'])->name}}</td>
-                <td>{{$row['quantity']}}</td>
-            </tr>
+            @foreach($promotion as $row)
+                <tr>
+                    <td>{{$row['description']}}</td>
+                    <td>{{Item::findOrFail($row['item_id'])->name}}</td>
+                    <td>{{$row['available_per_user']}}</td>
+                    <td>{{$row['reduction']}}</td>
+                    <td>{{$row['start_date']}}</td>
+                    <td>{{$row['end_date']}}</td>
+                    <td><a class="btn btn-primary" href="{{route('promotions.edit',$row['id'])}}">Modifier</a></td>
+                    <td><a class="btn btn-primary" href="{{route('promotions.destroy',$row['id'])}}">Éffacer</a></td>
+                </tr>
 
-                @endforeach
+            @endforeach
 
             </tbody>
         </table>
