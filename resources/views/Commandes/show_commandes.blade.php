@@ -30,22 +30,21 @@
                                         </p>
                                     @endif
                                 @endforeach
-                                                <ul>
-                                                @foreach($salesubitems as $salesubitem)
-                                                    @if($salesubitem->sale_id == $saleitem->sale_id && $salesubitem->sale_id == $saleitem->id)
-                                                        @foreach($subitems as $subitem)
-                                                            @if($subitem->id == $salesubitem->subitem_id)
-                                                                <li>
-                                                                    {{$subitem->name}}
-                                                                </li>
-                                                        @endif
-                                                    @endforeach
-                                                </ul>
-                                            @endif
+                                <ul>
+                                    @foreach($salesubitems as $salesubitem)
+                                        @if($salesubitem->sale_id == $saleitem->sale_id && $salesubitem->sale_item_id == $saleitem->id)
+                                            @foreach($subitems as $subitem)
+                                                @if($subitem->id == $salesubitem->subitem_id)
+                                                    <li>
+                                                        {{$subitem->name}}
+                                                    </li>
+                                                @endif
+                                            @endforeach
+                                        @endif
                                     @endforeach
+                                </ul>
                             @endif
-                            @endforeach
-
+                        @endforeach
                     </td>
                     <td>{{$sale->is_active}}</td>
                 </tr>
