@@ -35,7 +35,7 @@ Route::get('/test', function(){
 
 });
 
-Route::get('/ventes','VenteController@index')->name('ventes')->middleware('auth');
+Route::get('/ventes','SalesController@index')->name('ventes')->middleware('auth');
 
 Route::get('/commandes','CommandeController@index')->name('commandes')->middleware('auth');
 
