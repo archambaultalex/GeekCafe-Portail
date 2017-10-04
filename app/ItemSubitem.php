@@ -10,4 +10,5 @@ class ItemSubItem extends Model
     ];
     protected $table = 'item_subitems';
     protected $primaryKey = 'id';
+
 }
