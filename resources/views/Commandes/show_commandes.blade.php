@@ -1,6 +1,11 @@
 @extends('layouts.app')
-
+<?php
+use Carbon\Carbon;
+use App\Item;
+use App\ItemPrice;
+?>
 @section('content')
+    <meta http-equiv="refresh" content="1">
     <div class="container">
         <table class="table table-striped">
             <thead>
@@ -11,45 +16,37 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($sales as $sale)
-                @if($sale->is_active == 1)
-                 <tr>
-                    <td>{{$sale->id}}</td>
-                    <td>
-                        @foreach($saleitems as $saleitem)
-                            @if($saleitem->sale_id == $sale->id)
-                                    @foreach($items as $item)
-                                        <p>
-                                        @if($item->id == $saleitem->id)
-                                                @foreach($itemtypes as $itemtype)
-                                                    @if($itemtype->id == $item->type_id)
-                                                        {{$itemtype->name}}
-                                                    @endif
-                                                @endforeach
-                                                {{$item->name}}
-                                        </p>
-                                    @endif
-                                @endforeach
-                                <ul>
-                                    @foreach($salesubitems as $salesubitem)
-                                        @if($salesubitem->sale_id == $saleitem->sale_id && $salesubitem->sale_item_id == $saleitem->id)
-                                            @foreach($subitems as $subitem)
-                                                @if($subitem->id == $salesubitem->subitem_id)
-                                                    <li>
-                                                        {{$subitem->name}}
-                                                    </li>
-                                                @endif
-                                            @endforeach
-                                        @endif
-                                    @endforeach
-                                </ul>
-                            @endif
-                        @endforeach
-                    </td>
-                    <td>{{$sale->is_active}}</td>
-                </tr>
-                @endif
-            @endforeach
+                @foreach($sales as $sale)
+                  <tr>
+                      @if($sale->is_active == 1)
+                      <td>{{$sale->id}}</td>
+                          <td>
+                      @foreach($sale->saleitems as $saleitem)
+                          <?php $itemPriceId = ItemPrice::findOrFail($saleitem->item_id)->item_id; ?>
+                              {{Item::findOrFail($itemPriceId)->name}}
+                              @foreach($saleitem->salesubitem as $subitem)
+                                  <li>{{\App\Subitem::findOrFail($subitem->subitem_id)->name}}</li>
+                                   @endforeach
+
+                          @endforeach
+                          </td>
+                          <td>
+                            @php
+                            if($sale->created_at != null)
+                            {
+                                echo $sale->created_at->diffForHumans(Carbon::now(),true);
+                                 echo " ago";
+                            }
+                            else
+                            {
+                            echo "Non specifier";
+                            }
+                            @endphp
+                          </td>
+                          @endif
+                  </tr>
+                    @endforeach
+
             </tbody>
         </table>
     </div>
