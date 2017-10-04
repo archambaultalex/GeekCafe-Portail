@@ -32,8 +32,8 @@ Route::resource('/profile','ProfileController');
 
 Route::get('/test', function(){
 
-    return view('layouts.app');
-
+    $sale = \App\Sales::findOrFail(1);
+    dd($sale->saleitems[0]->salesubitem);
 });
 
 Route::get('/ventes','SalesController@index')->name('ventes')->middleware('auth');
