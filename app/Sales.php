@@ -8,4 +8,5 @@ class Sales extends Model
 {
     protected $table = 'sales';
     protected $primaryKey = 'id';
+
 }

@@ -9,7 +9,6 @@
 
     <div class="container">
         <h1>Promotions</h1>
-        <a href="{{route('promotions.create')}}">Créer une promotion</a>
         <table class="table table-striped" id="myTable">
             <thead>
             <tr>
