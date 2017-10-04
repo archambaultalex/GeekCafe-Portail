@@ -25,6 +25,11 @@
                 <td>{{$row['description']}}</td>
                 <td>{{ItemType::findOrFail($row['type_id'])->name}}</td>
                 <td>{{$row['quantity']}}</td>
+                <td>
+                    <form method="post" action="{{route('promotions.create',$row['id'])}}">
+                        <input class="btn btn-primary" type="submit" value="Créer une promotion"></form>
+                    </form>
+                </td>
             </tr>
 
                 @endforeach
