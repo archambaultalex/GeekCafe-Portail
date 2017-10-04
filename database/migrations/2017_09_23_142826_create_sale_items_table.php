@@ -17,8 +17,8 @@ class CreateSaleItemsTable extends Migration
           $table->increments('id');
           $table->integer('item_id')->unsigned();
           $table->foreign('item_id')->references('id')->on('item_prices');
-          $table->integer('sale_id')->unsigned();
-          $table->foreign('sale_id')->references('id')->on('sales');
+          $table->integer('sales_id')->unsigned();
+          $table->foreign('sales_id')->references('id')->on('sales');
           $table->timestamps();
           $table->softDeletes();
         });
