@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="panel-body">
-                    <a href="{{'commandes'}}">Commandes</a>
+                    <a href="{{route('commandes')}}">Commandes</a>
                 </div>
             </div>
         </div>

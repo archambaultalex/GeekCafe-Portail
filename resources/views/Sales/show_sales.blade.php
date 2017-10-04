@@ -7,15 +7,16 @@
             <tr>
                 <th>Numero Commande</th>
                 <th>Nombre d'articles commander</th>
+                <th>Date</th>
                 <th>Montant total</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($user as $users)
+            @foreach($sales as $sale)
                 <tr>
-            <td>{{$users->first_name}}</td>
-            <td>{{$users->last_name}}</td>
-            <td>{{$users->email}}</td>
+                    <td>{{$sale->id}}</td>
+                    <td>{{$sale->user_id}}</td>
+                    <td>{{$sale->is_active}}</td>
                 </tr>
             @endforeach
             </tbody>
