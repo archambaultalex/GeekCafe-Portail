@@ -12,10 +12,16 @@ class PromotionController extends Controller
     {
         $this->middleware('auth');
     }
-    //
+
     public function index(){
         $promotion = Promotion::all();
         return view('promotions.show_promotion',compact('promotion'));
+    }
+
+    public function test($id)
+    {
+        $item = Item::findOrFail($id);
+        return view('promotions.create_promotion',compact('item'));
     }
 
     public function create($id)
@@ -26,7 +32,7 @@ class PromotionController extends Controller
 
     public function store(Request $request)
     {
-        Promotion::created($request->all());
+        Promotion::create($request->all());
         return redirect('/promotions');
     }
 
@@ -39,7 +45,16 @@ class PromotionController extends Controller
     public function update(Request $request,$id)
     {
 
-        Promotion::findOrFail($id)->update($request->all());
+        Promotion::findOrFail($id)->update([
+            'description'=>$request->description,
+            'available_per_user'=>$request->parUser,
+            'reduction'=>$request->reduction,
+            'start_date'=>$request->start_date,
+            'end_date'=>$request->end_date
+        ]);
+
+
+
         return redirect('/promotions');
     }
 

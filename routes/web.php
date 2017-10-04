@@ -1,5 +1,6 @@
 <?php
 
+use App\Item;
 use App\User;
 use App\Image;
 /*
@@ -54,6 +55,10 @@ Route::get('/items/{idItem}/subitem','ItemSubitemController@index')->name('subit
 Route::get('/items/{idItem}/price','ItemPriceController@index')->name('price')->middleware('auth');
 
 
-Route::resource('/promotions','PromotionController');
+Route::get('promotions/create/{id}', [
+    'as' => 'promotions.create',
+    'uses' => 'PromotionController@create'
+])->middleware('auth');
 
-Route::get('/promotions/create/{$id}','PromotionController@creation');
+Route::resource('/promotions', 'PromotionController', ['except' => 'create']);
+

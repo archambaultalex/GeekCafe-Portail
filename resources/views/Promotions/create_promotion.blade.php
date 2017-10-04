@@ -25,7 +25,7 @@
                                 <label for="parUser" class="col-md-4 control-label">NB/Utilisateur</label>
 
                                 <div class="col-md-6">
-                                    <input id="parUser" type="text" class="form-control" name="parUser" value="{{ old('available_per_user') }}" required autofocus>
+                                    <input id="parUser" type="text" class="form-control" name="available_per_user" value="{{ old('available_per_user') }}" required autofocus>
                                 </div>
                             </div>
 

@@ -9,47 +9,103 @@
                     <div class="panel-heading">Register</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('promotions.update',$promotion->id) }}">
-                            {{ csrf_field() }}
+                        <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('profile.update',$profile->id) }}">
+
+                        {{ csrf_field() }}
 
                             <input type="hidden" name="_method" value="PUT"/>
-                            <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-                                <label for="description" class="col-md-4 control-label">Description</label>
+                            <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+                                <label for="name" class="col-md-4 control-label">First Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="description" type="text" class="form-control" name="description" value="{{ $promotion->description }}" required autofocus>
+                                    <input id="first-name" type="text" class="form-control" name="first_name" value="{{ $profile->first_name }}" required autofocus>
+
+                                    @if ($errors->has('first_name'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('first_name') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('available_per_user') ? ' has-error' : '' }}">
-                                <label for="parUser" class="col-md-4 control-label">NB/Utilisateur</label>
+                            <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
+                                <label for="name" class="col-md-4 control-label">Last Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="parUser" type="text" class="form-control" name="parUser" value="{{ $promotion->available_per_user }}" required autofocus>
+                                    <input id="last-name" type="text" class="form-control" name="last_name" value="{{ $profile->last_name }}" required autofocus>
+
+                                    @if ($errors->has('last_name'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('last_name') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('reduction') ? ' has-error' : '' }}">
-                                <label for="reduction" class="col-md-4 control-label">Réduction</label>
+                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                                 <div class="col-md-6">
-                                    <input id="reduction" type="text" class="form-control" name="reduction" value="{{ $promotion->reduction }}" required autofocus>
+                                    <input id="email" type="email" class="form-control" name="email" value="{{ $profile->email }}" required>
+
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('start_date') ? ' has-error' : '' }}">
-                                <label for="start_date" class="col-md-4 control-label">Start Date</label>
+                            <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
+                                <label for="gender" class="col-md-4 control-label">Gender</label>
 
                                 <div class="col-md-6">
-                                    <input id="start_date" type="date" class="form-control" name="start_date" value="{{ $promotion->start_date }}" required autofocus>
+                                    <select name="gender" id="gender" class="form-control" required>
+
+                                        <option name="male" value="male"@if($profile->gender == 'male') {{" selected"}} @endif >Male</option>
+                                        <option name="female" value="female"@if($profile->gender == 'female') {{" selected"}} @endif>Female</option>
+                                        <option name="other" value="other"@if($profile->gender == 'other') {{" selected"}} @endif>Other</option>
+                                    </select>
+                                    @if ($errors->has('gender'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('gender') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('end_date') ? ' has-error' : '' }}">
-                                <label for="end_date" class="col-md-4 control-label">End Date</label>
+                            <div class="form-group{{ $errors->has('birth_date') ? ' has-error' : '' }}">
+                                <label for="birth-date" class="col-md-4 control-label">Birth Date</label>
 
                                 <div class="col-md-6">
-                                    <input id="end_date" type="date" class="form-control" name="end_date" value="{{ $promotion->end_date }}" required autofocus>
+                                    <input id="birth-date" type="date" class="form-control" name="birth_date" value="{{ $profile->birth_date }}" required>
+
+                                    @if ($errors->has('birth_date'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('birth_date') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }}">
+                                <label for="phone-number" class="col-md-4 control-label">Phone Number</label>
+
+                                <div class="col-md-6">
+                                    <input id="phone-number" type="text" class="form-control" name="phone_number" value="{{ $profile->phone }}" required>
+                                    @if ($errors->has('phone_number'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('phone_number') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="image" class="col-md-4 control-label">Image</label>
+
+                                <div class="col-md-6">
+                                    <input class="form-control" type="file" id="image" name="image" accept="image/jpeg, image/png">
                                 </div>
                             </div>
 
