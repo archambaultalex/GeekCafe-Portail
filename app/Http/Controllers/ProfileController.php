@@ -8,8 +8,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Validation;
 use App\User;
 use App\Image;
+use Illuminate\Validation\Rule;
 
 
 class ProfileController extends Controller
@@ -32,6 +34,18 @@ class ProfileController extends Controller
 
     public function update(Request $request, $id)
     {
+        $this->validate($request,[
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => [
+                'required',
+                Rule::unique('users')->ignore($id),
+            ],
+            'gender' => 'required|string|max:255',
+            'birth_date' => 'required|date|max:255',
+            'phone_number' => 'required|string|phone:US,CA|',
+        ]);
+
         if(isset($request->image)) {
             $encoded = base64_encode(file_get_contents($request->image->getrealpath()));
             $uniquid = uniqid();
