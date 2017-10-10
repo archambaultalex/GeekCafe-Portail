@@ -5,6 +5,7 @@
             use App\Image;
             use App\ItemType;
             ?>
+
     <div class="container">
         <h1>Inventaire</h1>
         <table class="table table-striped" id="myTable">
