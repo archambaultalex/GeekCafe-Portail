@@ -3,7 +3,7 @@
     <!-- END SIDEBAR MENU TOP TRAY CONTENT-->
     <!-- BEGIN SIDEBAR MENU HEADER-->
     <div class="sidebar-header">
-        <img src="{{asset('img/geek-logo.png')}}" alt="logo" class="brand" data-src="assets/img/geek-logo.png" data-src-retina="assets/img/geek-logo.png" width="150" >
+        <a href="{{route('home')}}"><img src="{{asset('img/geek-logo.png')}}" alt="logo" class="brand" data-src="assets/img/geek-logo.png" data-src-retina="assets/img/geek-logo.png" width="150" ></a>
     </div>
     <!-- END SIDEBAR MENU HEADER-->
     <!-- START SIDEBAR MENU -->
