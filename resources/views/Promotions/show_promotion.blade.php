@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.template')
 
 @section('content')
     <?php
@@ -7,44 +7,44 @@
     use App\Item;
     ?>
 
-    <div class="container">
-        <h1>Promotions</h1>
-        <table class="table table-striped" id="myTable">
-            <thead>
-            <tr>
-                <th>Description</th>
-                <th>Item associé</th>
-                <th>NB/Utilisateurs</th>
-                <th>Réduction</th>
-                <th>Début</th>
-                <th>Fin</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($promotion as $row)
-                <tr>
-                    <td>{{$row['description']}}</td>
-                    <td>{{Item::findOrFail($row['item_id'])->name}}</td>
-                    <td>{{$row['available_per_user']}}</td>
-                    <td>{{$row['reduction']}}</td>
-                    <td>{{$row['start_date']}}</td>
-                    <td>{{$row['end_date']}}</td>
-                    <td><a class="btn btn-primary" href="{{route('promotions.edit',$row['id'])}}">Modifier</a></td>
+    {{--<div class="container">--}}
+        {{--<h1>Promotions</h1>--}}
+        {{--<table class="table table-striped" id="myTable">--}}
+            {{--<thead>--}}
+            {{--<tr>--}}
+                {{--<th>Description</th>--}}
+                {{--<th>Item associé</th>--}}
+                {{--<th>NB/Utilisateurs</th>--}}
+                {{--<th>Réduction</th>--}}
+                {{--<th>Début</th>--}}
+                {{--<th>Fin</th>--}}
+            {{--</tr>--}}
+            {{--</thead>--}}
+            {{--<tbody>--}}
+            {{--@foreach($promotion as $row)--}}
+                {{--<tr>--}}
+                    {{--<td>{{$row['description']}}</td>--}}
+                    {{--<td>{{Item::findOrFail($row['item_id'])->name}}</td>--}}
+                    {{--<td>{{$row['available_per_user']}}</td>--}}
+                    {{--<td>{{$row['reduction']}}</td>--}}
+                    {{--<td>{{$row['start_date']}}</td>--}}
+                    {{--<td>{{$row['end_date']}}</td>--}}
+                    {{--<td><a class="btn btn-primary" href="{{route('promotions.edit',$row['id'])}}">Modifier</a></td>--}}
                     {{--<td><a id="delete" class="btn btn-primary" href="{{route('promotions.destroy',$row['id'])}}">Éffacer</a></td>--}}
-                    <td>
-                        <form method="post" action=" {{route('promotions.destroy',$row['id'])}}">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="_method" value="DELETE"/>
-                            <input class="btn btn-primary" type="submit" value="Éffacer"></form>
-                        </form>
-                    </td>
-                </tr>
+                    {{--<td>--}}
+                        {{--<form method="post" action=" {{route('promotions.destroy',$row['id'])}}">--}}
+                            {{--{{ csrf_field() }}--}}
+                            {{--<input type="hidden" name="_method" value="DELETE"/>--}}
+                            {{--<input class="btn btn-primary" type="submit" value="Éffacer"></form>--}}
+                        {{--</form>--}}
+                    {{--</td>--}}
+                {{--</tr>--}}
 
-            @endforeach
+            {{--@endforeach--}}
 
-            </tbody>
-        </table>
-    </div>
+            {{--</tbody>--}}
+        {{--</table>--}}
+    {{--</div>--}}
 
 
 
