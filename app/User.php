@@ -19,4 +19,9 @@ class User extends Model implements Authenticatable, CanResetPassword
     ];
     protected $table = 'users';
     protected $primaryKey = 'id';
+
+    public function image()
+    {
+        return $this->belongsTo('App\Image','image_id');
+    }
 }
