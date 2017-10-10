@@ -12,42 +12,32 @@
         <ul class="menu-items">
 
             <li class="">
-                <a href="social.html"><span class="title">Places</span></a>
+                <a href="{{route('inventaire')}}"><span class="title">Inventaire</span></a>
                 <span class="icon-thumbnail"><i data-feather="users"></i></span>
             </li>
 
             <li class="">
-                <a href="social.html"><span class="title">Team</span></a>
+                <a href="{{route('ventes')}}"><span class="title">Ventes</span></a>
                 <span class="icon-thumbnail"><i data-feather="users"></i></span>
             </li>
 
             <li class="">
-                <a href="social.html"><span class="title">Client</span></a>
+                <a href="{{route('inventaire')}}"><span class="title">Clients</span></a>
                 <span class="icon-thumbnail"><i data-feather="users"></i></span>
             </li>
 
             <li class="">
-                <a href="social.html"><span class="title">Inventory</span></a>
+                <a href="{{route('inventaire')}}"><span class="title">Employés</span></a>
                 <span class="icon-thumbnail"><i data-feather="users"></i></span>
             </li>
 
             <li class="">
-                <a href="social.html"><span class="title">Subscription</span></a>
+                <a href="{{route('promotions.index')}}"><span class="title">Promotions</span></a>
                 <span class="icon-thumbnail"><i data-feather="users"></i></span>
             </li>
 
             <li class="">
-                <a href="social.html"><span class="title">Promotions</span></a>
-                <span class="icon-thumbnail"><i data-feather="users"></i></span>
-            </li>
-
-            <li class="">
-                <a href="social.html"><span class="title">Invoice</span></a>
-                <span class="icon-thumbnail"><i data-feather="users"></i></span>
-            </li>
-
-            <li class="">
-                <a href="social.html"><span class="title">Menu</span></a>
+                <a href="{{route('commandes')}}"><span class="title">Commandes</span></a>
                 <span class="icon-thumbnail"><i data-feather="users"></i></span>
             </li>
 
@@ -57,3 +47,4 @@
     </div>
     <!-- END SIDEBAR MENU -->
 </nav>
+
