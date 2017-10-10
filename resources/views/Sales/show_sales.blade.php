@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.template')
+@section('title')
+    Ventes
+    @endsection
 <?php
 use Carbon\Carbon;
 use App\Item;
