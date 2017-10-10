@@ -3,6 +3,8 @@
 use App\Item;
 use App\User;
 use App\Image;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +17,10 @@ use App\Image;
 */
 
 Route::get('/', function () {
+    if(Auth::check())
+    {
+        return redirect('/home');
+    }
     return view('auth/login');
 });
 
@@ -61,4 +67,9 @@ Route::get('promotions/create/{id}', [
 ])->middleware('auth');
 
 Route::resource('/promotions', 'PromotionController', ['except' => 'create']);
+
+Route::get('/test2',function()
+{
+   return view('inventaire.placeslist');
+});
 
