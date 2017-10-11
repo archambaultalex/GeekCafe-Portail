@@ -21,3 +21,10 @@
     border-color: #6ca642;
     color:white;
 }
+
+
+.li-menu {
+    list-style-type: none;
+    background-color: #efefef;
+    overflow: hidden;
+}

@@ -7,6 +7,10 @@ use App\ItemType;
 ?>
 @section('content')
 
+    <?php
+    use App\Image;
+    use App\ItemType;
+    ?>
     <div class="table-responsive">
         <table class="table table-hover" id="basicTable">
             <thead>

@@ -32,8 +32,12 @@
             </li>
 
             <li class="">
-                <a href="{{route('promotions.index')}}"><span class="title">Promotions</span></a>
+                <a onclick="dropdown_promotions()"><span class="title">Promotions</span></a>
                 <span class="icon-thumbnail"><i data-feather="users"></i></span>
+                    <ul style="height:0px;transition: height; transition-duration: 0.5s;" class="li-menu" id="gererpromotions">
+                        <li style="padding:5px 0px;"><a href="{{route('promotions.index')}}"><span class="title">Gérer Promotions</span></a>
+                        <li style="padding:5px 0px;"><a href="{{route('promotions.index')}}"><span class="title">Promotions live</span></a>
+                    </ul>
             </li>
 
             <li class="">
@@ -47,4 +51,23 @@
     </div>
     <!-- END SIDEBAR MENU -->
 </nav>
+
+
+<script>
+    var droped = false;
+    function dropdown_promotions()
+    {
+        if(!droped)
+        {
+            document.getElementById('gererpromotions').style.height = "70px";
+            droped = true;
+        }
+        else
+        {
+            document.getElementById('gererpromotions').style.height = "0px";
+            droped = false;
+        }
+
+    }
+</script>
 
