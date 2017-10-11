@@ -37,7 +37,7 @@
                 <span class="icon-thumbnail"><i data-feather="users"></i></span>
                     <ul style="height:0px;transition: height; transition-duration: 0.5s;" class="li-menu" id="gererpromotions">
                         <li style="padding:5px 0px;"><a href="{{route('promotions.index')}}"><span class="title">Gérer Promotions</span></a>
-                        <li style="padding:5px 0px;"><a href="{{route('promotions.index')}}"><span class="title">Promotions live</span></a>
+                        <li style="padding:5px 0px;"><a href="{{route('promotions.live')}}"><span class="title">Promotions live</span></a>
                     </ul>
             </li>
 

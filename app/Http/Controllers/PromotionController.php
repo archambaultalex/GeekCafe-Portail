@@ -75,6 +75,10 @@ class PromotionController extends Controller
         Promotion::findOrFail($id)->delete();
         return redirect('/promotions');
     }
-
+    public function live()
+    {
+        $promotion = Promotion::all();
+        return view('Promotions.live_promotion',compact('promotion'));
+    }
 
 }
