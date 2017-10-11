@@ -7,14 +7,14 @@ use App\ItemSize;
 ?>
 
 @section('title')
-    Commande
+    Commandes
     @endsection
 @section('content')
         <table class="table table-striped">
             <thead>
             <tr>
                 <th>Numero Commande</th>
-                <th>Item</th>
+                <th>Items</th>
                 <th>Temps depuis commandé</th>
             </tr>
             </thead>
