@@ -3,7 +3,7 @@
 use App\User;
         ?>
     <!-- START MOBILE SIDEBAR TOGGLE -->
-    <a href="#" class="btn-link toggle-sidebar hidden-lg-up pg pg-menu" data-toggle="sidebar">
+    <a onclick="sidbarOpen()"  class="btn-link toggle-sidebar hidden-lg-up pg pg-menu" data-toggle="sidebar">
     </a>
     <!-- END MOBILE SIDEBAR TOGGLE -->
     <div class="">
@@ -11,7 +11,7 @@ use App\User;
             <!-- DON'T ERASE THE BRAND INLINE DIV -->
         </div>
     </div>
-    <div class="d-flex align-items-center">
+    <div id="profile" class="d-flex align-items-center">
         <!-- START User Info-->
         <div class="pull-left p-r-10 fs-14 font-heading hidden-md-down m-l-20">
             <span  class="semi-bold">{{User::findOrFail(Auth::id())->first_name}}</span> <span class="text-master">{{User::findOrFail(Auth::id())->last_name}}</span>
@@ -62,4 +62,26 @@ use App\User;
 
 </script>
 
+
+<script>
+    var sideparOp = false;
+    function sidbarOpen()
+    {
+        var x = document.getElementById('body');
+        var y = document.getElementById('navBar');
+        if(!sideparOp)
+        {
+            x.className="fixed-header menu-pin sidebar-open";
+            y.className="page-sidebar visible";
+            sideparOp = true;
+        }
+        else
+        {
+            x.className="fixed-header menu-pin";
+            y.className="page-sidebar";
+            sideparOp = false;
+        }
+    }
+
+</script>
 

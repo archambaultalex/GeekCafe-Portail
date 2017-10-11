@@ -12,7 +12,7 @@ class Sales extends Model
 
     public function saleitems()
     {
-        return $this->hasMany('App\SaleItem','sales_id');
+        return $this->hasMany('App\SaleItem','sale_id');
     }
 
 }
