@@ -1,18 +1,20 @@
-@extends('layouts.app')
+@extends('layouts.template')
 <?php
 use Carbon\Carbon;
 use App\Item;
 use App\ItemPrice;
 use App\ItemSize;
 ?>
+
+@section('title')
+    Commandes
+    @endsection
 @section('content')
-    <meta http-equiv="refresh" content="1">
-    <div class="container">
         <table class="table table-striped">
             <thead>
             <tr>
                 <th>Numero Commande</th>
-                <th>Item</th>
+                <th>Items</th>
                 <th>Temps depuis commandé</th>
             </tr>
             </thead>
@@ -55,5 +57,4 @@ use App\ItemSize;
 
             </tbody>
         </table>
-    </div>
 @endsection

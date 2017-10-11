@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.template')
+@section('title')
+    Promotions
+    @endsection
 
 @section('content')
     <?php
@@ -8,7 +11,6 @@
     ?>
 
     <div class="container">
-        <h1>Promotions</h1>
         <table class="table table-striped" id="myTable">
             <thead>
             <tr>
@@ -30,7 +32,6 @@
                     <td>{{$row['start_date']}}</td>
                     <td>{{$row['end_date']}}</td>
                     <td><a class="btn btn-primary" href="{{route('promotions.edit',$row['id'])}}">Modifier</a></td>
-                    {{--<td><a id="delete" class="btn btn-primary" href="{{route('promotions.destroy',$row['id'])}}">Éffacer</a></td>--}}
                     <td>
                         <form method="post" action=" {{route('promotions.destroy',$row['id'])}}">
                             {{ csrf_field() }}

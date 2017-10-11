@@ -32,6 +32,12 @@ class PromotionController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'NB/utlisateur' => 'numeric',
+            'start_date' => 'required',
+            'end_date'=>'required|after:start_date'
+        ]);
+
         Promotion::create($request->all());
         return redirect('/promotions');
     }
@@ -44,6 +50,12 @@ class PromotionController extends Controller
 
     public function update(Request $request,$id)
     {
+
+        $this->validate($request, [
+            'Nb/utilisateur' => 'numeric',
+            'start_date' => 'required',
+            'end_date'=>'required|after:start_date'
+        ]);
 
         Promotion::findOrFail($id)->update([
             'description'=>$request->description,
