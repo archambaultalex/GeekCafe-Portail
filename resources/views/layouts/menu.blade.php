@@ -1,4 +1,4 @@
-<nav class="page-sidebar" data-pages="sidebar">
+<nav id="navBar" class="page-sidebar" data-pages="sidebar">
     <!-- BEGIN SIDEBAR MENU TOP TRAY CONTENT-->
     <!-- END SIDEBAR MENU TOP TRAY CONTENT-->
     <!-- BEGIN SIDEBAR MENU HEADER-->

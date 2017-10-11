@@ -12,7 +12,7 @@ use Illuminate\Validation;
 use App\User;
 use App\Image;
 use Illuminate\Validation\Rule;
-use Illuminate\Validation;
+
 
 
 class ProfileController extends Controller
