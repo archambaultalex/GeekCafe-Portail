@@ -21,11 +21,16 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('available_per_user') ? ' has-error' : '' }}">
+                            <div class="form-group{{ $errors->has('NB/utlisateur') ? ' has-error' : '' }}">
                                 <label for="parUser" class="col-md-4 control-label">NB/Utilisateur</label>
 
                                 <div class="col-md-6">
-                                    <input id="parUser" type="text" class="form-control" name="parUser" value="{{ old('available_per_user') }}" required autofocus>
+                                    <input id="parUser" type="text" class="form-control" name="NB/utlisateur" value="{{ old('available_per_user') }}" required autofocus>
+                                    @if ($errors->has('NB/utlisateur'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('NB/utlisateur') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                             </div>
 
@@ -42,6 +47,11 @@
 
                                 <div class="col-md-6">
                                     <input id="start_date" type="date" class="form-control" name="start_date" value="{{ old('start_date') }}" required autofocus>
+                                    @if ($errors->has('start_date'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('start_date') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                             </div>
 
@@ -50,6 +60,11 @@
 
                                 <div class="col-md-6">
                                     <input id="end_date" type="date" class="form-control" name="end_date" value="{{ old('end_date') }}" required autofocus>
+                                    @if ($errors->has('end_date'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('end_date') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                             </div>
 

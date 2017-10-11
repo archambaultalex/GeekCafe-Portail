@@ -1,7 +1,10 @@
 <?php
 
+use App\Item;
 use App\User;
 use App\Image;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +17,10 @@ use App\Image;
 */
 
 Route::get('/', function () {
+    if(Auth::check())
+    {
+        return redirect('/home');
+    }
     return view('auth/login');
 });
 
@@ -31,8 +38,8 @@ Route::resource('/profile','ProfileController');
 
 Route::get('/test', function(){
 
-    return view('layouts.app');
-
+    $sale = \App\Sales::findOrFail(1);
+    dd($sale->saleitems[0]->salesubitem);
 });
 
 Route::get('/ventes','SalesController@index')->name('ventes')->middleware('auth');
@@ -54,6 +61,15 @@ Route::get('/items/{idItem}/subitem','ItemSubitemController@index')->name('subit
 Route::get('/items/{idItem}/price','ItemPriceController@index')->name('price')->middleware('auth');
 
 
-Route::resource('/promotions','PromotionController');
+Route::get('promotions/create/{id}', [
+    'as' => 'promotions.create',
+    'uses' => 'PromotionController@create'
+])->middleware('auth');
 
-Route::get('/promotions/create/{$id}','PromotionController@creation');
+Route::resource('/promotions', 'PromotionController', ['except' => 'create']);
+
+Route::get('/test2',function()
+{
+   return view('inventaire.placeslist');
+});
+
