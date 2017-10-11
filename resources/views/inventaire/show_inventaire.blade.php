@@ -1,7 +1,10 @@
 @extends('layouts.template')
 
 @section('title') Acceuil @endsection
-
+<?php
+use App\Image;
+use App\ItemType;
+?>
 @section('content')
 
     <?php
