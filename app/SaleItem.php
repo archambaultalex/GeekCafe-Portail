@@ -12,7 +12,7 @@ class SaleItem extends Model
 
     public function sales()
     {
-        return $this->belongsTo('App\Sales','sale_id');
+        return $this->belongsTo('App\Sales','sales_id');
     }
 
     public function salesubitem()

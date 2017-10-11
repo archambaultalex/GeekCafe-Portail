@@ -10,6 +10,7 @@ use App\ItemSize;
     Commandes
     @endsection
 @section('content')
+    <head> <meta http-equiv="refresh" content="5"></head>
         <table class="table table-striped">
             <thead>
             <tr>
