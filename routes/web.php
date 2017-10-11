@@ -66,10 +66,12 @@ Route::get('promotions/create/{id}', [
     'uses' => 'PromotionController@create'
 ])->middleware('auth');
 
-Route::resource('/promotions', 'PromotionController', ['except' => 'create']);
+
+Route::get('/promotions/live','PromotionController@live')->name('promotions.live')->middleware('auth');
 
 Route::get('/test2',function()
 {
    return view('inventaire.placeslist');
 });
 
+Route::resource('/promotions', 'PromotionController', ['except' => 'create']);
