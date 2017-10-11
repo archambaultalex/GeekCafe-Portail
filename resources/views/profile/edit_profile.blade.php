@@ -1,5 +1,7 @@
-@extends('layouts.app')
-
+@extends('layouts.template')
+@section('title')
+    Profile
+    @endsection
 
 @section('content')
     <div class="container">
@@ -26,6 +28,8 @@
                                     </span>
                                     @endif
                                 </div>
+
+
                             </div>
 
                             <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
