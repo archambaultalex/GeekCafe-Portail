@@ -1,6 +1,6 @@
 @extends('layouts.template')
 @section('title')
-    Promotions
+    Gestion Promotions
     @endsection
 
 @section('content')
