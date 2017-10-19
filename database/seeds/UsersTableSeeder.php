@@ -22,6 +22,7 @@ class UsersTableSeeder extends Seeder {
           'birth_date' => $faker->date(),
           'first_name' => $faker->firstName(),
           'last_name' => $faker->lastName(),
+           'is_admin' => 1,
        ]);
      }
 
