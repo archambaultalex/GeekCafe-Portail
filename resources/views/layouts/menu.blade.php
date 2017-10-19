@@ -22,7 +22,7 @@
             </li>
 
             <li class="">
-                <a href="{{route('inventaire')}}"><span class="title">Clients</span></a>
+                <a href="{{route('client.index')}}"><span class="title">Clients</span></a>
                 <span class="icon-thumbnail"><i data-feather="users"></i></span>
             </li>
 
@@ -32,7 +32,7 @@
             </li>
 
             <li class="">
-                <a onclick="dropdown_promotions()"><span class="title">Promotions</span></a>
+                <a style="cursor:pointer" onclick="dropdown_promotions()"><span class="title">Promotions</span></a>
                 <span class="icon-thumbnail"><i data-feather="users"></i></span>
                     <ul style="height:0px;transition: height; transition-duration: 0.5s;" class="li-menu" id="gererpromotions">
                         <li style="padding:5px 0px;"><a href="{{route('promotions.index')}}"><span class="title">Gérer Promotions</span></a>

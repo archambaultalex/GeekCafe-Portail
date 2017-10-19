@@ -30,7 +30,7 @@
                         <div class="card-title">@yield('title')</div>
                     </div>
                     <div class="card-block">
-                        <div class="table-responsive">
+                        <div style="min-height:500px" class="table-responsive">
                             @yield('content')
                         </div>
                     </div>
