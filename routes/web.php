@@ -38,8 +38,7 @@ Route::resource('/profile','ProfileController');
 
 Route::get('/test', function(){
 
-    $sale = \App\Sales::findOrFail(1);
-    dd($sale->saleitems[0]->salesubitem);
+    return view('test');
 });
 
 Route::get('/ventes','SalesController@index')->name('ventes')->middleware('auth');
@@ -75,3 +74,5 @@ Route::get('/test2',function()
 });
 
 Route::resource('/promotions', 'PromotionController', ['except' => 'create']);
+
+Route::resource('/client','ClientController');
