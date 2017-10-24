@@ -76,3 +76,9 @@ Route::get('/test2',function()
 Route::resource('/promotions', 'PromotionController', ['except' => 'create']);
 
 Route::resource('/client','ClientController');
+
+Route::get('/employes',function()
+{
+    $employes = User::all()->where('is_admin',1);
+    return view('client.show_employes',compact('employes'));
+});
