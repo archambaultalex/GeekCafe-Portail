@@ -44,7 +44,7 @@ class ItemTypeController extends Controller
 
     public function delete($id)
     {
-        ItemType::findOrFail($id)->delete();
+        ItemTypes::findOrFail($id)->delete();
         return redirect('');
     }
 }

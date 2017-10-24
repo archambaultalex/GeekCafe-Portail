@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('title')
-    Gestion Promotions
-    @endsection
+    Utlisateurs Ios
+@endsection
 
 @section('content')
     <?php
@@ -14,31 +14,27 @@
         <table class="table table-striped" id="myTable">
             <thead>
             <tr>
-                <th>Description</th>
-                <th>Item associé</th>
-                <th>NB/Utilisateurs</th>
-                <th>Réduction</th>
-                <th>Début</th>
-                <th>Fin</th>
+                <th>Image</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Courriel</th>
+                <th>Genre</th>
+                <th>Date de Naissance</th>
+                <th>Téléphone</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($promotion as $row)
+            @foreach($employes as $row)
                 <tr>
-                    <td>{{$row['description']}}</td>
-                    <td>{{Item::findOrFail($row['item_id'])->name}}</td>
-                    <td>{{$row['available_per_user']}}</td>
-                    <td>{{$row['reduction']}}</td>
-                    <td>{{$row['start_date']}}</td>
-                    <td>{{$row['end_date']}}</td>
-                    <td><a class="btn btn-primary" href="{{route('promotions.edit',$row['id'])}}">Modifier</a></td>
-                    <td>
-                        <form method="post" action=" {{route('promotions.destroy',$row['id'])}}">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="_method" value="DELETE"/>
-                            <input class="btn btn-primary" type="submit" value="Éffacer"></form>
-                        </form>
+                    <td class="v-align-middle ">
+                        <img style="max-width: 40%;" src="data:image/png;base64,{{Image::findOrFail($row['image_id'])->image}}"/>
                     </td>
+                    <td>{{$row['first_name']}}</td>
+                    <td>{{$row['last_name']}}</td>
+                    <td>{{$row['email']}}</td>
+                    <td>{{$row['gender']}}</td>
+                    <td>{{$row['birth_date']}}</td>
+                    <td>{{$row['phone']}}</td>
                 </tr>
 
             @endforeach

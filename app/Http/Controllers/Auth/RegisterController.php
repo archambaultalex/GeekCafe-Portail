@@ -75,6 +75,7 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'birth_date' => $data['birth_date'],
             'phone' => $data['phone_number'],
+            'is_admin' => 1,
         ]);
     }
 

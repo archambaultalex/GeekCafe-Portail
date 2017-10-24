@@ -22,7 +22,18 @@ class UsersTableSeeder extends Seeder {
           'birth_date' => $faker->date(),
           'first_name' => $faker->firstName(),
           'last_name' => $faker->lastName(),
+           'is_admin' => 1,
        ]);
      }
+
+      User::create([
+          'email' => "archambaultalexandre@outlook.com",
+          'password' => Hash::make("Allo123"),
+          'gender' => 'male',
+          'phone' => '+1514-994-2358',
+          'birth_date' => '1997-12-08',
+          'first_name' => 'Alexandre',
+          'last_name' => 'Archambault',
+      ]);
   }
 }

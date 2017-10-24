@@ -12,7 +12,7 @@
     ?>
     @include('layouts.header')
 </head>
-<body class="fixed-header menu-pin">
+<body id="body" class="fixed-header menu-pin">
 
 @include('layouts.menu')
 @include('layouts.topbar')
@@ -30,7 +30,7 @@
                         <div class="card-title">@yield('title')</div>
                     </div>
                     <div class="card-block">
-                        <div class="table-responsive">
+                        <div style="min-height:500px" class="table-responsive">
                             @yield('content')
                         </div>
                     </div>
@@ -43,9 +43,10 @@
         <!-- START COPYRIGHT -->
         <!-- START CONTAINER FLUID -->
         <!-- START CONTAINER FLUID -->
-    @include('layouts.footer')
+
     <!-- END COPYRIGHT -->
     </div>
+@include('layouts.footer')
     <!-- END PAGE CONTENT WRAPPER -->
 </div>
 <!-- END PAGE CONTAINER -->
@@ -54,7 +55,11 @@
 <!-- END OVERLAY -->
 <!-- BEGIN VENDOR JS -->
 <!--    --><?php //include('includes/footer-files.php') ?>
+
 <!-- END PAGE LEVEL JS -->
 
 </body>
+
+
+
 </html>

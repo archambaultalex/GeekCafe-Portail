@@ -14,3 +14,4 @@
 <link href="{{asset('plugins/datatables-responsive/css/datatables.responsive.css')}}" rel="stylesheet" type="text/css" media="screen" />
 <link href="{{asset('css/pages-icons.css')}}" rel="stylesheet" type="text/css">
 <link class="main-stylesheet" href="{{asset('css/themes/light.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('css/custom.css')}}" rel="stylesheet" type="text/css" />

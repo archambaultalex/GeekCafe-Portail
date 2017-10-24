@@ -1,5 +1,7 @@
-@extends('layouts.app')
-
+@extends('layouts.template')
+@section('title')
+    Profile
+    @endsection
 
 @section('content')
     <div class="container">
@@ -26,13 +28,15 @@
                                     </span>
                                     @endif
                                 </div>
+
+
                             </div>
 
                             <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
                                 <label for="name" class="col-md-4 control-label">Last Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="last-name" type="text" class="form-control" name="last_name" value="{{ $profile->last_name }}" required autofocus>
+                                    <input id="last-name" type="text" class="form-control" name="last_name" value="{{$profile->last_name }}" required autofocus>
 
                                     @if ($errors->has('last_name'))
                                         <span class="help-block">
@@ -46,7 +50,12 @@
                                 <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ $profile->email }}" required>
+                                    <input id="email" type="email" class="form-control" name="email" value="
+                                                                    @if ($errors->has('email'))
+                                                                        {{ old('email') }}
+                                                                    @else
+                                                                        {{$profile->email}}
+                                                                    @endif" required>
 
                                     @if ($errors->has('email'))
                                         <span class="help-block">

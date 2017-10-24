@@ -15,7 +15,7 @@ class PromotionController extends Controller
 
     public function index(){
         $promotion = Promotion::all();
-        return view('promotions.show_promotion',compact('promotion'));
+        return view('Promotions.show_promotion',compact('promotion'));
     }
 
     public function test($id)
@@ -75,6 +75,10 @@ class PromotionController extends Controller
         Promotion::findOrFail($id)->delete();
         return redirect('/promotions');
     }
-
+    public function live()
+    {
+        $promotion = Promotion::all();
+        return view('Promotions.live_promotion',compact('promotion'));
+    }
 
 }

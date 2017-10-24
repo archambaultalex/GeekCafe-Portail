@@ -38,8 +38,7 @@ Route::resource('/profile','ProfileController');
 
 Route::get('/test', function(){
 
-    $sale = \App\Sales::findOrFail(1);
-    dd($sale->saleitems[0]->salesubitem);
+    return view('test');
 });
 
 Route::get('/ventes','SalesController@index')->name('ventes')->middleware('auth');
@@ -66,10 +65,20 @@ Route::get('promotions/create/{id}', [
     'uses' => 'PromotionController@create'
 ])->middleware('auth');
 
-Route::resource('/promotions', 'PromotionController', ['except' => 'create']);
+
+Route::get('/promotions/live','PromotionController@live')->name('promotions.live')->middleware('auth');
 
 Route::get('/test2',function()
 {
    return view('inventaire.placeslist');
 });
 
+Route::resource('/promotions', 'PromotionController', ['except' => 'create']);
+
+Route::resource('/client','ClientController');
+
+Route::get('/employes',function()
+{
+    $employes = User::all()->where('is_admin',1);
+    return view('client.show_employes',compact('employes'));
+});
