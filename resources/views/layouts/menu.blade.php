@@ -17,8 +17,12 @@
             </li>
 
             <li class="">
-                <a href="{{route('ventes')}}"><span class="title">Ventes</span></a>
+                <a style="cursor:pointer" onclick="dropdown_ventes()"><span class="title">Ventes</span></a>
                 <span class="icon-thumbnail"><i data-feather="users"></i></span>
+                <ul style="height:0px;transition: height; transition-duration: 0.5s;" class="li-menu" id="historiquevente">
+                    <li style="padding:5px 0px;"><a href="{{route('ventes')}}"><span class="title">Graphique Historique</span></a>
+                    <li style="padding:5px 0px;"><a href="{{route('ventes.tableau')}}"><span class="title">Tableau Historique</span></a>
+                </ul>
             </li>
 
             <li class="">
@@ -66,6 +70,21 @@
         {
             document.getElementById('gererpromotions').style.height = "0px";
             droped = false;
+        }
+
+    }
+    var droped2 = false;
+    function dropdown_ventes()
+    {
+        if(!droped2)
+        {
+            document.getElementById('historiquevente').style.height = "70px";
+            droped2 = true;
+        }
+        else
+        {
+            document.getElementById('historiquevente').style.height = "0px";
+            droped2 = false;
         }
 
     }
