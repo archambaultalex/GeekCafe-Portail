@@ -18,4 +18,11 @@ class CommandeController extends Controller
 
         return view('Commandes.show_commandes',compact('sales'));
     }
+
+    public function deactivate($id)
+    {
+        Sales::findOrFail($id)->update(['is_active' => 0]);
+        return redirect('test2');
+    }
+
 }

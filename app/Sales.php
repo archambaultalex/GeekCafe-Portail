@@ -9,6 +9,10 @@ class Sales extends Model
     protected $table = 'sales';
     protected $primaryKey = 'id';
 
+    protected $fillable = [
+        'is_active'
+    ];
+
 
     public function saleitems()
     {
