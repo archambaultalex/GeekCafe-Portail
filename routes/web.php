@@ -86,3 +86,4 @@ Route::get('/employes',function()
     return view('client.show_employes',compact('employes'));
 })->name('employes')->middleware('auth');
 
+Route::get('/ventes/tableau', 'SalesController@tableau')->name('ventes.tableau')->middleware('auth');
