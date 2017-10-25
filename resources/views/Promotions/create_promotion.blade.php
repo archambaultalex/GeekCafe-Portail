@@ -1,5 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.template')
 
+@section('title')
+    Create Promotions
+    @endsection
 
 @section('content')
     <div class="container">
@@ -25,10 +28,10 @@
                                 <label for="parUser" class="col-md-4 control-label">NB/Utilisateur</label>
 
                                 <div class="col-md-6">
-                                    <input id="parUser" type="text" class="form-control" name="NB/utlisateur" value="{{ old('available_per_user') }}" required autofocus>
-                                    @if ($errors->has('NB/utlisateur'))
+                                    <input id="parUser" type="text" class="form-control" name="ParUtilisateur" value="{{ old('available_per_user') }}" required autofocus>
+                                    @if ($errors->has('ParUtilisateur'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('NB/utlisateur') }}</strong>
+                                        <strong>{{ $errors->first('ParUtilisateur') }}</strong>
                                     </span>
                                     @endif
                                 </div>

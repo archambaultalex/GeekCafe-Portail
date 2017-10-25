@@ -27,7 +27,7 @@
             </li>
 
             <li class="">
-                <a href="{{route('inventaire')}}"><span class="title">Employés</span></a>
+                <a href="{{route('employes')}}"><span class="title">Employés</span></a>
                 <span class="icon-thumbnail"><i data-feather="users"></i></span>
             </li>
 

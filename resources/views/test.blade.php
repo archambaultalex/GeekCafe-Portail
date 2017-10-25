@@ -1,5 +1,10 @@
 @include('layouts.header')
 <head> <meta http-equiv="refresh" content="5"></head>
+<style>
+    #test{
+        min-height:1000px !important;
+    }
+</style>
 <table class="table table-striped">
     <thead>
     <tr>
@@ -51,8 +56,15 @@
                          }
                     @endphp
                 </td>
+            <td>
+                <form method="post" action=" {{route('commandes.deactivate',$sale['id'])}}">
+                    {{ csrf_field() }}
+                    <input class="btn btn-primary" type="submit" value="Terminer"></form>
+                </form>
+            </td>
             @endif
         </tr>
+
     @endforeach
 
     </tbody>

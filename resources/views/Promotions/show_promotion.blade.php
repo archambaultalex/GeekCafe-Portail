@@ -40,7 +40,7 @@
                         <form method="post" action=" {{route('promotions.destroy',$row['id'])}}">
                             {{ csrf_field() }}
                             <input type="hidden" name="_method" value="DELETE"/>
-                            <input class="btn btn-primary" type="submit" value="Éffacer"></form>
+                            <input style="color: #fff;background-color: #d12a4e;border-color: #ea2c54;" class="btn btn-primary" type="submit" value="Éffacer"></form>
                         </form>
                     </td>
                 </tr>

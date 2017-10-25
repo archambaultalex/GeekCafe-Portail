@@ -46,6 +46,7 @@ Route::get('/ventes','SalesController@index')->name('ventes')->middleware('auth'
 
 Route::get('/commandes','CommandeController@index')->name('commandes')->middleware('auth');
 
+Route::post('/commandes/{id}/deactivate','CommandeController@deactivate')->name('commandes.deactivate')->middleware('auth');
 
 
 Route::get('/inventaire','inventaireController@index')->name('inventaire')->middleware('auth');
@@ -73,7 +74,7 @@ Route::get('/test2',function()
 {
     $sales = Sales::all();
    return view('test',compact('sales'));
-});
+})->name('commandes.view')->middleware('auth');
 
 Route::resource('/promotions', 'PromotionController', ['except' => 'create']);
 
@@ -81,6 +82,7 @@ Route::resource('/client','ClientController');
 
 Route::get('/employes',function()
 {
-    $employes = User::all()->where('is_admin',1);
+    $employes = User::all()->where('is_emp',1);
     return view('client.show_employes',compact('employes'));
-});
+})->name('employes')->middleware('auth');
+
