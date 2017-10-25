@@ -10,7 +10,9 @@
     </thead>
     <tbody><?php
     use Carbon\Carbon;
-
+    use App\Item;
+    use App\ItemPrice;
+    use App\ItemSize;
     ?>
     @foreach($sales as $sale)
         <tr>
@@ -33,15 +35,15 @@
                 </td>
                 <td>
                     @php
-                          if($sale->created_at != null)
-                           {
-                               echo $sale->created_at->diffForHumans(Carbon::now(),true);
-                                echo " ago";
-                           }
-                           else
-                           {
-                           echo "Non specifier";
-                           }
+                        if($sale->created_at != null)
+                         {
+                             echo $sale->created_at->diffForHumans(Carbon::now(),true);
+                              echo " ago";
+                         }
+                         else
+                         {
+                         echo "Non specifier";
+                         }
                     @endphp
                 </td>
             @endif

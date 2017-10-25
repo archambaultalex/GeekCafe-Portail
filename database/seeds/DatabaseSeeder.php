@@ -34,5 +34,9 @@ class DatabaseSeeder extends Seeder
       $this->call('PromotionsTableSeeder');
       DB::table('sales')->truncate();
       $this->call('SaleSeeder');
+      DB::table('sale_items')->truncate();
+      $this->call('SaleItemSeeder');
+        DB::table('sale_subitems')->truncate();
+        $this->call('SaleSubitemSeeder');
     }
 }

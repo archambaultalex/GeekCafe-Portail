@@ -10,7 +10,7 @@ use App\ItemSize;
     Commandes
     @endsection
 @section('content')
-   <iframe style="width:100%;height:100%" src="http://geekcafe.dev/test2">
+   <iframe style="width:100%;height:100%;border:none;" src="http://geekcafe.dev/test2">
 
    </iframe>
 @endsection
