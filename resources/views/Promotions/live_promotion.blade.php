@@ -28,7 +28,11 @@
                 @if($row->start_date < \Carbon\Carbon::now() && $row->end_date > \Carbon\Carbon::now())
                 <tr>
                     <td>{{$row['description']}}</td>
-                    <td>{{Item::findOrFail($row['item_id'])->name}}</td>
+                    <?php
+                    $item = Item::findOrFail($row['item_id'])
+                            ?>
+                    <td>{{\App\ItemType::findOrFail($item['type_id'])->name}}
+                        {{Item::findOrFail($row['item_id'])->name}}</td>
                     <td>{{$row['available_per_user']}}</td>
                     <td>{{$row['reduction']}}</td>
                     <td>{{$row['start_date']}}</td>

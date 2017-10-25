@@ -10,7 +10,10 @@
     </thead>
     <tbody><?php
     use Carbon\Carbon;
-
+    use App\Item;
+    use App\ItemPrice;
+    use App\ItemSize;
+    use App\ItemType;
     ?>
     @foreach($sales as $sale)
         <tr>
@@ -23,6 +26,10 @@
 
                         {{ItemSize::findOrFail($itemPrice->size_id)->name}}
                         <?php echo " - "; ?>
+                            <?php
+                            $item = Item::findOrFail($itemPrice['item_id'])
+                            ?>
+                        {{\App\ItemType::findOrFail($item->type_id)->name}}
                         {{Item::findOrFail($itemPrice->item_id)->name}}
                         <ul>
                             @foreach($saleitem->salesubitem as $subitem)
@@ -33,15 +40,15 @@
                 </td>
                 <td>
                     @php
-                          if($sale->created_at != null)
-                           {
-                               echo $sale->created_at->diffForHumans(Carbon::now(),true);
-                                echo " ago";
-                           }
-                           else
-                           {
-                           echo "Non specifier";
-                           }
+                        if($sale->created_at != null)
+                         {
+                             echo $sale->created_at->diffForHumans(Carbon::now(),true);
+                              echo " ago";
+                         }
+                         else
+                         {
+                         echo "Non specifier";
+                         }
                     @endphp
                 </td>
             @endif
