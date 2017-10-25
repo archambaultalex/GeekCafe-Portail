@@ -1,6 +1,7 @@
 <?php
 
 use App\Item;
+use App\Sales;
 use App\User;
 use App\Image;
 use Illuminate\Support\Facades\Auth;
@@ -70,7 +71,8 @@ Route::get('/promotions/live','PromotionController@live')->name('promotions.live
 
 Route::get('/test2',function()
 {
-   return view('inventaire.placeslist');
+    $sales = Sales::all();
+   return view('test',compact('sales'));
 });
 
 Route::resource('/promotions', 'PromotionController', ['except' => 'create']);
