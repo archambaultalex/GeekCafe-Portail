@@ -42,6 +42,10 @@ use App\ItemType;
                     </td>
 
                     <td class="v-align-middle">
+                        <p>{{$row['quantity']}}</p>
+                    </td>
+
+                    <td class="v-align-middle">
                         <a class="btn btn-primary" href="{{route('promotions.create',$row['id'])}}">Ajouter une Promotion</a>
                     </td>
                 </tr>

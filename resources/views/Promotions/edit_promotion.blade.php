@@ -1,12 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.template')
 
+@section('title')
+    Modifier Promotions
+    @endsection
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Register</div>
 
                     <div class="panel-body">
                         <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('promotions.update',$promotion->id) }}">
@@ -25,7 +27,7 @@
                                 <label for="Nb/utilisateur" class="col-md-4 control-label">NB/Utilisateur</label>
 
                                 <div class="col-md-6">
-                                    <input id="Nb/utilisateur" type="text" class="form-control" name="Nb/utilisateur" value="{{ $promotion->available_per_user }}" required autofocus>
+                                    <input id="Nb/utilisateur" type="text" class="form-control" name="ParUtilisateur" value="{{ $promotion->available_per_user }}" required autofocus>
                                     @if ($errors->has('Nb/utilisateur'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('Nb/utilisateur') }}</strong>
