@@ -12,6 +12,11 @@ use App\Subitem;
 @endsection
 @section('content')
 
+    Date début
+    <input type="date" id="datestart" value="<?php echo Carbon::now()->subMonth(1)->toDateString();?>" style="margin-right: 50px;">
+    Date fin
+    <input type="date" id="dateend" value="<?php echo Carbon::now()->toDateString();?>" style="margin-right: 20px;">
+    <input type="button" value="Filtrer" id="datebtn">
     <table class="table table-striped">
         <thead>
         <tr>
@@ -22,6 +27,13 @@ use App\Subitem;
         </tr>
         </thead>
         <tbody>
+
+        <script>
+            $('#datebtn').click(function(){
+                var dates = [$('#datestart').val(), $('#dateend').val()]
+
+            });
+        </script>
         @foreach($sales as $sale)
             <tr>
                 @if($sale->is_active == 0)
