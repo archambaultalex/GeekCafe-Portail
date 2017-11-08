@@ -1,6 +1,7 @@
 <?php
 
 use App\Item;
+use App\Sales;
 use App\User;
 use App\Image;
 use Illuminate\Support\Facades\Auth;
@@ -38,14 +39,14 @@ Route::resource('/profile','ProfileController');
 
 Route::get('/test', function(){
 
-    $sale = \App\Sales::findOrFail(1);
-    dd($sale->saleitems[0]->salesubitem);
+    return view('test');
 });
 
 Route::get('/ventes','SalesController@index')->name('ventes')->middleware('auth');
 
 Route::get('/commandes','CommandeController@index')->name('commandes')->middleware('auth');
 
+Route::post('/commandes/{id}/deactivate','CommandeController@deactivate')->name('commandes.deactivate')->middleware('auth');
 
 
 Route::get('/inventaire','inventaireController@index')->name('inventaire')->middleware('auth');
@@ -71,7 +72,18 @@ Route::get('/promotions/live','PromotionController@live')->name('promotions.live
 
 Route::get('/test2',function()
 {
-   return view('inventaire.placeslist');
-});
+    $sales = Sales::all();
+   return view('test',compact('sales'));
+})->name('commandes.view')->middleware('auth');
 
 Route::resource('/promotions', 'PromotionController', ['except' => 'create']);
+
+Route::resource('/client','ClientController');
+
+Route::get('/employes',function()
+{
+    $employes = User::all()->where('is_emp',1);
+    return view('client.show_employes',compact('employes'));
+})->name('employes')->middleware('auth');
+
+Route::get('/ventes/tableau', 'SalesController@tableau')->name('ventes.tableau')->middleware('auth');

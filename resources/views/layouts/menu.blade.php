@@ -17,22 +17,26 @@
             </li>
 
             <li class="">
-                <a href="{{route('ventes')}}"><span class="title">Ventes</span></a>
+                <a style="cursor:pointer" onclick="dropdown_ventes()"><span class="title">Ventes</span></a>
+                <span class="icon-thumbnail"><i data-feather="users"></i></span>
+                <ul style="height:0px;transition: height; transition-duration: 0.5s;" class="li-menu" id="historiquevente">
+                    <li style="padding:5px 0px;"><a href="{{route('ventes')}}"><span class="title">Graphique Historique</span></a>
+                    <li style="padding:5px 0px;"><a href="{{route('ventes.tableau')}}"><span class="title">Tableau Historique</span></a>
+                </ul>
+            </li>
+
+            <li class="">
+                <a href="{{route('client.index')}}"><span class="title">Clients</span></a>
                 <span class="icon-thumbnail"><i data-feather="users"></i></span>
             </li>
 
             <li class="">
-                <a href="{{route('inventaire')}}"><span class="title">Clients</span></a>
+                <a href="{{route('employes')}}"><span class="title">Employés</span></a>
                 <span class="icon-thumbnail"><i data-feather="users"></i></span>
             </li>
 
             <li class="">
-                <a href="{{route('inventaire')}}"><span class="title">Employés</span></a>
-                <span class="icon-thumbnail"><i data-feather="users"></i></span>
-            </li>
-
-            <li class="">
-                <a onclick="dropdown_promotions()"><span class="title">Promotions</span></a>
+                <a style="cursor:pointer" onclick="dropdown_promotions()"><span class="title">Promotions</span></a>
                 <span class="icon-thumbnail"><i data-feather="users"></i></span>
                     <ul style="height:0px;transition: height; transition-duration: 0.5s;" class="li-menu" id="gererpromotions">
                         <li style="padding:5px 0px;"><a href="{{route('promotions.index')}}"><span class="title">Gérer Promotions</span></a>
@@ -66,6 +70,21 @@
         {
             document.getElementById('gererpromotions').style.height = "0px";
             droped = false;
+        }
+
+    }
+    var droped2 = false;
+    function dropdown_ventes()
+    {
+        if(!droped2)
+        {
+            document.getElementById('historiquevente').style.height = "70px";
+            droped2 = true;
+        }
+        else
+        {
+            document.getElementById('historiquevente').style.height = "0px";
+            droped2 = false;
         }
 
     }

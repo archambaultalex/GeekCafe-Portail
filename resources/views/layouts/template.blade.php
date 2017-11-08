@@ -30,7 +30,7 @@
                         <div class="card-title">@yield('title')</div>
                     </div>
                     <div class="card-block">
-                        <div class="table-responsive">
+                        <div id="test" style="min-height:500px" class="table-responsive">
                             @yield('content')
                         </div>
                     </div>
@@ -45,8 +45,9 @@
         <!-- START CONTAINER FLUID -->
 
     <!-- END COPYRIGHT -->
+        @include('layouts.footer')
     </div>
-@include('layouts.footer')
+
     <!-- END PAGE CONTENT WRAPPER -->
 </div>
 <!-- END PAGE CONTAINER -->
