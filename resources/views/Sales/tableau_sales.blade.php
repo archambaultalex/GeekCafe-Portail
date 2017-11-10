@@ -13,10 +13,15 @@ use App\Subitem;
 @section('content')
 
     Date début
-    <input type="date" id="datestart" value="<?php echo Carbon::now()->subMonth(1)->toDateString();?>" style="margin-right: 50px;">
-    Date fin
-    <input type="date" id="dateend" value="<?php echo Carbon::now()->toDateString();?>" style="margin-right: 20px;">
-    <input type="button" value="Filtrer" id="datebtn">
+    <form class="form-horizontal" method="POST" action="{{ route('ventes.filtrer') }}">
+        {{ csrf_field() }}
+        <input type="date" id="datestart" name="datestart" value="<?php if(isset($datestart)){echo $datestart;}else{echo Carbon::now()->subMonth(1)->toDateString();} ?>" style="margin-right: 50px;" required autofocus>
+        Date fin
+        <input type="date" id="dateend" name="dateend" value="<?php if(isset($dateend)){echo $dateend;}else{echo Carbon::now()->toDateString();} ?>" style="margin-right: 20px;" required autofocus>
+        <button type="submit" class="btn btn-primary" id="datebtn">
+            Filtrer
+        </button>
+    </form>
     <table class="table table-striped">
         <thead>
         <tr>
