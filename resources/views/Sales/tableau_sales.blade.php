@@ -89,7 +89,9 @@ use App\Subitem;
                 ?>
             @endforeach
         @endforeach
-        <?php echo $total;
+        <?php
+        echo number_format($total,2);
+
         echo "$"?>
                     </td>
                 @endif
