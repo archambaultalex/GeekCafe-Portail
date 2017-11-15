@@ -14,7 +14,8 @@ class CommandeController extends Controller
 
     public function index()
     {
-        $sales = Sales::all();
+        //$sales = Sales::all();
+        $sales = Sales::paginate(15);
 
         return view('Commandes.show_commandes',compact('sales'));
     }
