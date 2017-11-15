@@ -26,8 +26,10 @@ class SalesController extends Controller
     }
     public function tableau()
     {
+        $datestart = Carbon::now()->subMonth(1)->toDateString();
+        $dateend = Carbon::now()->toDateString();
         $sales = Sales::all()->where('is_active',0);
-        return view('Sales.tableau_sales',compact('sales'));
+        return view('Sales.tableau_sales',compact('sales','datestart','dateend'));
     }
 
     public function filtrer(Request $request)
