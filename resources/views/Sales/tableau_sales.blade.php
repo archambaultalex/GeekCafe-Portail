@@ -32,13 +32,6 @@ use App\Subitem;
         </tr>
         </thead>
         <tbody>
-
-        <script>
-            $('#datebtn').click(function(){
-                var dates = [$('#datestart').val(), $('#dateend').val()]
-
-            });
-        </script>
         @foreach($sales as $sale)
             <tr>
                 @if($sale->is_active == 0)
