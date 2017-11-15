@@ -87,3 +87,5 @@ Route::get('/employes',function()
 })->name('employes')->middleware('auth');
 
 Route::get('/ventes/tableau', 'SalesController@tableau')->name('ventes.tableau')->middleware('auth');
+
+Route::post('/ventes/filtrer','SalesController@filtrer')->name('ventes.filtrer')->middleware('auth');

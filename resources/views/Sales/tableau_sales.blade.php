@@ -12,6 +12,16 @@ use App\Subitem;
 @endsection
 @section('content')
 
+    Date début
+    <form class="form-horizontal" method="POST" action="{{ route('ventes.filtrer') }}">
+        {{ csrf_field() }}
+        <input type="date" id="datestart" name="datestart" value="<?php if(isset($datestart)){echo $datestart;}else{echo Carbon::now()->subMonth(1)->toDateString();} ?>" style="margin-right: 50px;" required autofocus>
+        Date fin
+        <input type="date" id="dateend" name="dateend" value="<?php if(isset($dateend)){echo $dateend;}else{echo Carbon::now()->toDateString();} ?>" style="margin-right: 20px;" required autofocus>
+        <button type="submit" class="btn btn-primary" id="datebtn">
+            Filtrer
+        </button>
+    </form>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -22,6 +32,13 @@ use App\Subitem;
         </tr>
         </thead>
         <tbody>
+
+        <script>
+            $('#datebtn').click(function(){
+                var dates = [$('#datestart').val(), $('#dateend').val()]
+
+            });
+        </script>
         @foreach($sales as $sale)
             <tr>
                 @if($sale->is_active == 0)
@@ -72,7 +89,9 @@ use App\Subitem;
                 ?>
             @endforeach
         @endforeach
-        <?php echo $total;
+        <?php
+        echo number_format($total,2);
+
         echo "$"?>
                     </td>
                 @endif
