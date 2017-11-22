@@ -82,7 +82,7 @@ Route::resource('/client','ClientController');
 
 Route::get('/employes',function()
 {
-    $employes = User::all()->where('is_emp',1);
+    $employes = User::all()->where('is_employee',1);
     return view('client.show_employes',compact('employes'));
 })->name('employes')->middleware('auth');
 
