@@ -37,11 +37,16 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('reduction') ? ' has-error' : '' }}">
-                                <label for="reduction" class="col-md-4 control-label">Réduction</label>
+                            <div class="form-group{{ $errors->has('discount') ? ' has-error' : '' }}">
+                                <label for="discount" class="col-md-4 control-label">Réduction</label>
 
                                 <div class="col-md-6">
-                                    <input id="reduction" type="text" class="form-control" name="reduction" value="{{ old('reduction') }}" required autofocus>
+                                    <input id="discount" type="text" class="form-control" name="discount" value="{{ old('discount') }}" required autofocus>
+                                    @if ($errors->has('discount'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('discount') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                             </div>
 

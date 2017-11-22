@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
       $this->call('SaleSeeder');
       DB::table('sale_items')->truncate();
       $this->call('SaleItemSeeder');
-        DB::table('sale_subitems')->truncate();
-        $this->call('SaleSubitemSeeder');
+      DB::table('sale_subitems')->truncate();
+      $this->call('SaleSubitemSeeder');
     }
 }

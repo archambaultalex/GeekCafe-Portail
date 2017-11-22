@@ -40,7 +40,7 @@
                                 <label for="reduction" class="col-md-4 control-label">Réduction</label>
 
                                 <div class="col-md-6">
-                                    <input id="reduction" type="text" class="form-control" name="reduction" value="{{ $promotion->reduction }}" required autofocus>
+                                    <input id="reduction" type="text" class="form-control" name="reduction" value="{{ $promotion->discount }}" required autofocus>
                                 </div>
                             </div>
 
