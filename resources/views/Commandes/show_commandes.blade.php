@@ -10,8 +10,8 @@ use App\ItemSize;
     Commandes
     @endsection
 @section('content')
-    <iframe id="xIfrWidget0" scrolling="no" style="width:100%;min-height:4000px;border:none;display:none" src="http://geekcafe.dev/test2"></iframe>
-    <iframe id="xIfrWidget1" scrolling="no" style="width:100%;min-height:4000px;border:none;display:none" src="http://geekcafe.dev/test2"></iframe>
+    <iframe id="xIfrWidget0" scrolling="no" style="width:100%;min-height:8000px;border:none;display:none" src="http://geekcafe.dev/test2"></iframe>
+    <iframe id="xIfrWidget1" scrolling="no" style="width:100%;min-height:8000px;border:none;display:none" src="http://geekcafe.dev/test2"></iframe>
 
     <script>
         let ifrNo = 0;

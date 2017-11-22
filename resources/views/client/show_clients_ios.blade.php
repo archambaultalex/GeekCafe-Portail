@@ -1,6 +1,6 @@
 @extends('layouts.template')
 @section('title')
-    Utlisateurs Ios
+    Clients
 @endsection
 
 @section('content')

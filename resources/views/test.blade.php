@@ -26,7 +26,7 @@
                 <td>{{$sale->id}}</td>
                 <td>
                     @foreach($sale->saleitems as $saleitem)
-                        <?php $itemPrice = ItemPrice::findOrFail($saleitem->item_id);
+                        <?php $itemPrice = ItemPrice::findOrFail($saleitem->item_price_id);
                         ?>
 
                         {{ItemSize::findOrFail($itemPrice->size_id)->name}}

@@ -45,7 +45,7 @@ use App\Subitem;
                     <td>{{$sale->id}}</td>
                     <td>
                         @foreach($sale->saleitems as $saleitem)
-                            <?php $itemPrice = ItemPrice::findOrFail($saleitem->item_id);
+                            <?php $itemPrice = ItemPrice::findOrFail($saleitem->item_price_id);
                             ?>
 
                             {{ItemSize::findOrFail($itemPrice->size_id)->name}}
@@ -75,7 +75,7 @@ use App\Subitem;
     $total = 0;
     ?>
     @foreach($sale->saleitems as $saleitem)
-        <?php  $itemPrice = ItemPrice::findOrFail($saleitem->item_id);
+        <?php  $itemPrice = ItemPrice::findOrFail($saleitem->item_price_id);
         $total = $total + $itemPrice->price;
         ?>
         @foreach($saleitem->salesubitem as $subitem)
