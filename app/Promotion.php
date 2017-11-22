@@ -11,7 +11,7 @@ class Promotion extends Model
         'description',
         'item_id',
         'available_per_user',
-        'reduction',
+        'discount',
         'start_date',
         'end_date'
     ];

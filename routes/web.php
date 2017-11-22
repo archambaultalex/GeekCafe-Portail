@@ -72,7 +72,7 @@ Route::get('/promotions/live','PromotionController@live')->name('promotions.live
 
 Route::get('/test2',function()
 {
-    $sales = Sales::all();
+    $sales = Sales::orderBy('created_at','DESC')->get();
    return view('test',compact('sales'));
 })->name('commandes.view')->middleware('auth');
 

@@ -32,7 +32,7 @@
                     <td>{{\App\ItemType::findOrFail($item['type_id'])->name}}
                         {{Item::findOrFail($row['item_id'])->name}}</td>
                     <td>{{$row['available_per_user']}}</td>
-                    <td>{{$row['reduction']}}</td>
+                    <td>{{$row['discount']}}</td>
                     <td>{{$row['start_date']}}</td>
                     <td>{{$row['end_date']}}</td>
                     <td><a class="btn btn-primary" href="{{route('promotions.edit',$row['id'])}}">Modifier</a></td>
