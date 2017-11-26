@@ -8,6 +8,7 @@ use App\ItemType;
 @section('content')
 
     <div class="table-responsive">
+         <a class="btn btn-primary" style="float:right;background-color: #02f837; border-color: #02f837;" href="{{route('items.create')}}">Ajouter un item</a>
         <table class="table table-hover" id="basicTable">
             <thead>
             <tr>
@@ -26,7 +27,7 @@ use App\ItemType;
             @foreach($items as $row)
                 <tr>
                     <td class="v-align-middle ">
-                        <img style="max-width: 40%;" src="{{Image::findOrFail($row['image_id'])->image}}"/>
+                        <img style="max-width: 40%;" src="data:image/png;base64,{{Image::findOrFail($row['image_id'])->image}}"/>
                     </td>
 
                     <td class="v-align-middle nameTd">
@@ -45,8 +46,14 @@ use App\ItemType;
                         <p>{{$row['quantity']}}</p>
                     </td>
 
-                    <td class="v-align-middle">
+                    <td style="text-align: center" class="v-align-middle">
                         <a class="btn btn-primary" href="{{route('promotions.create',$row['id'])}}">Ajouter une Promotion</a>
+                        <a style="margin-top:15px" class="btn btn-primary" href="{{route('items.edit',$row['id'])}}">Modifier</a>
+                        <form style="margin-top: 15px" method="post" action=" {{route('items.destroy',$row['id'])}}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="_method" value="DELETE"/>
+                            <input style="color: #fff;background-color: #d12a4e;border-color: #ea2c54;" class="btn btn-primary" type="submit" value="Éffacer">
+                        </form>
                     </td>
                 </tr>
             @endforeach
