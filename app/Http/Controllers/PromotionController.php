@@ -32,8 +32,6 @@ class PromotionController extends Controller
 
     public function store(Request $request)
     {
-
-
         $this->validate($request, [
             'ParUtilisateur' => 'required|numeric',
             'discount'=>'required',
