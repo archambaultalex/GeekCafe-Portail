@@ -51,7 +51,11 @@ Route::post('/commandes/{id}/deactivate','CommandeController@deactivate')->name(
 
 Route::resource('/items','ItemController');
 
+Route::resource('/subitems','SubItemController');
+
 Route::get('/inventaire','inventaireController@index')->name('inventaire')->middleware('auth');
+
+Route::post('/subitems/item','SubItemController@addItem')->name('additem')->middleware('auth');
 
 
 Route::get('promotions/create/{id}', [
