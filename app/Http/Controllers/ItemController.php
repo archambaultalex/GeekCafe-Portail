@@ -52,7 +52,7 @@ class ItemController extends Controller
             'image_id'=>$uniquid,
         ]);
 
-        $itemid = Item::WhereName($request->name)->first();
+        $itemid = Item::all()->where('name','==',$request->name)->first();
 
         if($request->typeid == 3)
         {
