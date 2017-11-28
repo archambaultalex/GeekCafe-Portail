@@ -20,7 +20,6 @@ use App\ItemType;
                 <th style="width:20%;cursor:pointer" onclick="sortTableAlpha()">Item</th>
                 <th style="width:29%">Description</th>
                 <th style="width:15%">Type</th>
-                <th style="width:15%">Quantité</th>
             </tr>
             </thead>
             <tbody>
@@ -40,10 +39,6 @@ use App\ItemType;
 
                     <td class="v-align-middle">
                         <p>{{ItemType::findOrFail($row['type_id'])->name}}</p>
-                    </td>
-
-                    <td class="v-align-middle">
-                        <p>{{$row['quantity']}}</p>
                     </td>
 
                     <td style="text-align: center" class="v-align-middle">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Image;
+use App\ItemPrice;
 use Illuminate\Http\Request;
 Use App\Item;
 
@@ -33,7 +34,9 @@ class ItemController extends Controller
             'name' => 'required',
             'description'=>'required',
             'typeid' => 'required',
-            'quantity'=>'required|numeric'
+            'prixpet' => 'required|numeric',
+            'prixmoy' => 'required|numeric',
+            'prixgrd' => 'required|numeric',
         ]);
 
         if(isset($request->image)) {
@@ -48,8 +51,49 @@ class ItemController extends Controller
             'description'=>$request->description,
             'type_id'=>$request->typeid,
             'image_id'=>$uniquid,
-            'quantity'=>$request->quantity,
         ]);
+
+        $itemid = Item::all()->where('name','==',$request->name)->first()->id;
+
+        if($request->typeid == 3)
+        {
+            ItemPrice::create([
+                'price' => $request->prixpet,
+                'item_id' => $itemid,
+                'size_id' => 4
+            ]);
+
+            ItemPrice::create([
+                'price' => $request->prixmoy,
+                'item_id' => $itemid,
+            'size_id' => 5
+            ]);
+
+            ItemPrice::create([
+                'price' => $request->prixgrd,
+                'item_id' => $itemid,
+            'size_id' => 6
+            ]);
+        }
+        else {
+            ItemPrice::create([
+                'price' => $request->prixpet,
+                'item_id' => $itemid,
+            'size_id' => 1
+            ]);
+
+            ItemPrice::create([
+                'price' => $request->prixmoy,
+                'item_id' => $itemid,
+            'size_id' => 2
+            ]);
+
+            ItemPrice::create([
+                'price' => $request->prixgrd,
+                'item_id' => $itemid,
+            'size_id' => 3
+            ]);
+        }
         return redirect('/inventaire');
     }
 
@@ -65,7 +109,6 @@ class ItemController extends Controller
             'name' => 'required',
             'description'=>'required',
             'typeid' => 'required',
-            'quantity'=>'required|numeric'
         ]);
 
         if(isset($request->image)) {
