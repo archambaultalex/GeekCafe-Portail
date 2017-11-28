@@ -18,6 +18,7 @@ class CreateItemSubItemsTable extends Migration
           $table->foreign('item_id')->references('id')->on('items');
           $table->integer('subitem_id')->unsigned();
           $table->foreign('subitem_id')->references('id')->on('subitems');
+          $table->primary(array('item_id', 'subitem_id'));
           $table->timestamps();
           $table->softDeletes();
         });
@@ -30,6 +31,7 @@ class CreateItemSubItemsTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Schema::dropIfExists('item_subitems');
     }
 }

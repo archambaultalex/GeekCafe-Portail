@@ -28,7 +28,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/home') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
@@ -39,23 +39,38 @@
                         &nbsp;
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    <!-- Right Side Of Navbar Test -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
+
                         @else
+
+                            <li>
+                                <a href="{{ route('home') }}" class="" >
+                                    Dashboard
+                                </a>
+                            </li>
+
                             <li class="dropdown">
+                                {{--<img style="float:left; max-width:15%;vertical-align: top" src="data:image/png;base64,{{Auth::user()->image->image}}"/>--}}
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->first_name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+
                                     <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                        <a href="{{ route('profile.edit',Auth::user()->id) }}">
+                                            Profile
+                                        </a>
+
+                                    </li>
+
+                                    <li>
+                                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
 
@@ -63,15 +78,23 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+
+
                                 </ul>
                             </li>
+
                         @endif
                     </ul>
+
                 </div>
             </div>
         </nav>
 
+
         @yield('content')
+
+
+
     </div>
 
     <!-- Scripts -->

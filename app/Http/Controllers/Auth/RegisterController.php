@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -54,7 +55,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'gender' => 'required|string|max:255',
             'birth_date' => 'required|date|max:255',
-            'phone_number' => 'required|string|phone:US,CA',
+            'phone_number' => 'required|string|phone:US,CA|',
         ]);
     }
 
@@ -74,7 +75,14 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'birth_date' => $data['birth_date'],
             'phone' => $data['phone_number'],
-            'remember_token' => "",
+            'is_admin' => 1,
         ]);
     }
+
+
+
+//    protected function guard()
+//    {
+//        return Auth::guard('guard-name');
+//    }
 }

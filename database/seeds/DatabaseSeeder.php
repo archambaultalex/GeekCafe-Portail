@@ -11,6 +11,32 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+      DB::statement('SET FOREIGN_KEY_CHECKS=0');
+      DB::table('users')->truncate();
+      $this->call('UsersTableSeeder');
+      DB::table('images')->truncate();
+      $this->call('ImagesTableSeeder');
+      DB::table('branches')->truncate();
+      $this->call('BranchesTableSeeder');
+      DB::table('item_sizes')->truncate();
+      $this->call('ItemSizesTableSeeder');
+      DB::table('items')->truncate();
+      $this->call('ItemsTableSeeder');
+      DB::table('item_types')->truncate();
+      $this->call('ItemTypesTableSeeder');
+      DB::table('subitems')->truncate();
+      $this->call('SubitemsTableSeeder');
+      DB::table('item_subitems')->truncate();
+      $this->call('ItemSubitemsTableSeeder');
+      DB::table('item_prices')->truncate();
+      $this->call('ItemPricesTableSeeder');
+      DB::table('promotions')->truncate();
+      $this->call('PromotionsTableSeeder');
+      DB::table('sales')->truncate();
+      $this->call('SaleSeeder');
+      DB::table('sale_items')->truncate();
+      $this->call('SaleItemSeeder');
+      DB::table('sale_subitems')->truncate();
+      $this->call('SaleSubitemSeeder');
     }
 }

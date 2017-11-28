@@ -22,12 +22,13 @@ class CreateUsersTable extends Migration
           $table->string('gender');
           $table->date('birth_date');
           $table->string('phone')->nullable();
+          $table->integer('is_admin')->default(0);
           $table->string('device_token', 2000)->nullable();
           $table->string('facebook_id', 300)->nullable();
           $table->string('stripe_cus', 300)->nullable();
           $table->string('image_id')->default(1);
           $table->foreign('image_id')->references('id')->on('images');
-          $table->string('remember_token');
+          $table->string('remember_token')->nullable();
           $table->timestamps();
           $table->softDeletes();
         });
@@ -40,6 +41,7 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Schema::dropIfExists('users');
     }
 }

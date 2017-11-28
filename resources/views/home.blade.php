@@ -1,23 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.template')
+
+<?php
+    use App\User;
+?>
+
+@section('title')
+    Acceuil
+    @endsection
+
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    <h1>Bienvenue @if(User::findOrFail(Auth::id())->gender == "male") {{"Mr. "}} @elseif(User::findOrFail(Auth::id())->gender == "female") {{"Mme. "}} @else {{" "}} @endif{{User::findOrFail(Auth::id())->last_name}}</h1>
 
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+    @endsection

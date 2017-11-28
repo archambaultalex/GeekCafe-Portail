@@ -1,0 +1,30 @@
+.wrapper{
+    padding-top:200px;
+}
+
+.full-width-alex{
+    max-width: 600px;
+    margin: auto;
+    margin-top: 200px;
+}
+
+.btn-primary-geek
+ {
+     background-color: #6ca642;
+     border-color: #6ca642;
+     color:white;
+ }
+
+.btn-primary-geek:hover
+{
+    background-color: #6ca642;
+    border-color: #6ca642;
+    color:white;
+}
+
+
+.li-menu {
+    list-style-type: none;
+    background-color: #efefef;
+    overflow: hidden;
+}

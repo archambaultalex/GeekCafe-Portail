@@ -96,7 +96,7 @@
                             <label for="birth-date" class="col-md-4 control-label">Birth Date</label>
 
                             <div class="col-md-6">
-                                <input id="birth-date" type="date" class="form-control" name="birth_date" required>
+                                <input id="birth-date" type="date" class="form-control" name="birth_date" value="{{ old('birth_date') }}" required>
 
                                 @if ($errors->has('birth_date'))
                                     <span class="help-block">
@@ -111,7 +111,7 @@
                             <label for="phone-number" class="col-md-4 control-label">Phone Number</label>
 
                             <div class="col-md-6">
-                                <input id="phone-number" type="text" class="form-control" name="phone_number" required>
+                                <input id="phone-number" type="text" class="form-control" name="phone_number" value="{{ old('phone_number') }}" required>
                                 @if ($errors->has('phone_number'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('phone_number') }}</strong>
@@ -119,14 +119,6 @@
                                 @endif
                             </div>
                         </div>
-
-                        {{--<div class="form-group">--}}
-                            {{--<label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>--}}
-
-                            {{--<div class="col-md-6">--}}
-                                {{--<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
