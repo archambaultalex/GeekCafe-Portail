@@ -10,9 +10,10 @@ use App\ItemSize;
     Commandes
     @endsection
 @section('content')
-    <iframe id="xIfrWidget0" scrolling="no" style="width:100%;min-height:8000px;border:none;display:none" src="http://guijethostingtools.com/test2"></iframe>
-    <iframe id="xIfrWidget1" scrolling="no" style="width:100%;min-height:8000px;border:none;display:none" src="http://guijethostingtools.com/test2"></iframe>
-
+    {{--<iframe id="xIfrWidget0" scrolling="no" style="width:100%;min-height:8000px;border:none;display:none" src="http://guijethostingtools.com/test2"></iframe>--}}
+    {{--<iframe id="xIfrWidget1" scrolling="no" style="width:100%;min-height:8000px;border:none;display:none" src="http://guijethostingtools.com/test2"></iframe>--}}
+    <iframe id="xIfrWidget0" scrolling="no" style="width:100%;min-height:8000px;border:none;display:none" src="http://geekcafe.dev/test2"></iframe>
+    <iframe id="xIfrWidget1" scrolling="no" style="width:100%;min-height:8000px;border:none;display:none" src="http://geekcafe.dev/test2"></iframe>
     <script>
         let ifrNo = 0;
         let ifrHidden;
@@ -31,7 +32,7 @@ use App\ItemSize;
                 ifrHidden.style.display = 'block';
 
             }
-            ifrHidden.src = "http://guijethostingtools.com/test2";
+            ifrHidden.src = "http://geekcafe.dev/test2";
 
         }
 
