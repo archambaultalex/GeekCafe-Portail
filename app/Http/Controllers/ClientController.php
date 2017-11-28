@@ -16,7 +16,7 @@ class ClientController extends Controller
 
     public function index()
     {
-        $client = Client::all()->where('is_employee',0);
+        $client = Client::all()->where('is_employee','==',0)->where('is_admin','==',0);
         return view('client.show_clients_ios',compact('client'));
     }
 }
