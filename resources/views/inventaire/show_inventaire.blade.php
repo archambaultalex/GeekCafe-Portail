@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title') Acceuil @endsection
+@section('title') Items @endsection
 <?php
 use App\Image;
 use App\ItemType;

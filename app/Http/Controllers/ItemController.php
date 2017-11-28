@@ -75,6 +75,7 @@ class ItemController extends Controller
             'size_id' => 6
             ]);
         }
+        else if ()
         else {
             ItemPrice::create([
                 'price' => $request->prixpet,
