@@ -51,7 +51,7 @@ use App\Item;use App\ItemType;
                     </td>
 
                     <td style="text-align: center" class="v-align-middle">
-                        <a style="margin-top:15px" class="btn btn-primary" href="{{route('subitems.edit',$row['id'])}}">Modifier</a>
+                        <a class="btn btn-primary" href="{{route('subitems.edit',$row['id'])}}">Modifier</a>
 
                         <button onclick="addData({{$row['id']}})" type="button" class="btn btn-primary subAdd" id="{{$row['id']}}" data-toggle="modal" data-target="#myModal">Ajouter a un item</button>
                         {{--<form style="margin-top: 15px" method="post" action=" {{route('subitems.destroy',$row['id'])}}">--}}
