@@ -33,7 +33,6 @@ class ItemController extends Controller
             'name' => 'required',
             'description'=>'required',
             'typeid' => 'required',
-            'quantity'=>'required|numeric'
         ]);
 
         if(isset($request->image)) {
@@ -48,7 +47,6 @@ class ItemController extends Controller
             'description'=>$request->description,
             'type_id'=>$request->typeid,
             'image_id'=>$uniquid,
-            'quantity'=>$request->quantity,
         ]);
         return redirect('/inventaire');
     }
@@ -65,7 +63,6 @@ class ItemController extends Controller
             'name' => 'required',
             'description'=>'required',
             'typeid' => 'required',
-            'quantity'=>'required|numeric'
         ]);
 
         if(isset($request->image)) {

@@ -43,20 +43,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('quantity') ? ' has-error' : '' }}">
-                                <label for="quantity" class="col-md-4 control-label">Quantité</label>
-
-                                <div class="col-md-6">
-                                    <input id="quantity" type="text" class="form-control" name="quantity" value="{{$item->quantity}}" required>
-
-                                    @if ($errors->has('quantity'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('quantity') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
                             <div class="form-group{{ $errors->has('typeid') ? ' has-error' : '' }}">
                                 <label for="typeid" class="col-md-4 control-label">Type</label>
 
