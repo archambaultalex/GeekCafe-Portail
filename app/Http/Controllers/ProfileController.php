@@ -44,7 +44,7 @@ class ProfileController extends Controller
             ],
             'gender' => 'required|string|max:255',
             'birth_date' => 'required|date|max:255',
-            'phone_number' => 'required|string|phone:US,CA|',
+            'phone_number' => 'required|string|phone:US,CA',
         ]);
 
         if(isset($request->image)) {
