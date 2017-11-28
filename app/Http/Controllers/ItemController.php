@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Image;
+use App\ItemPrice;
 use Illuminate\Http\Request;
 Use App\Item;
 
