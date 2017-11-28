@@ -33,6 +33,9 @@ class ItemController extends Controller
             'name' => 'required',
             'description'=>'required',
             'typeid' => 'required',
+            'prixpet' => 'required|numeric',
+            'prixmoy' => 'required|numeric',
+            'prixgrd' => 'required|numeric',
         ]);
 
         if(isset($request->image)) {
@@ -48,6 +51,48 @@ class ItemController extends Controller
             'type_id'=>$request->typeid,
             'image_id'=>$uniquid,
         ]);
+
+        $itemid = Item::WhereName($request->name)->first();
+
+        if($request->typeid == 3)
+        {
+            ItemPrice::create([
+                'price' => $request->prixpet,
+                'item_id' => $itemid,
+                'size_id' => 4
+            ]);
+
+            ItemPrice::create([
+                'price' => $request->prixmoy,
+                'item_id' => $itemid,
+            'size_id' => 5
+            ]);
+
+            ItemPrice::create([
+                'price' => $request->prixgrd,
+                'item_id' => $itemid,
+            'size_id' => 6
+            ]);
+        }
+        else {
+            ItemPrice::create([
+                'price' => $request->prixpet,
+                'item_id' => $itemid,
+            'size_id' => 1
+            ]);
+
+            ItemPrice::create([
+                'price' => $request->prixmoy,
+                'item_id' => $itemid,
+            'size_id' => 2
+            ]);
+
+            ItemPrice::create([
+                'price' => $request->prixgrd,
+                'item_id' => $itemid,
+            'size_id' => 3
+            ]);
+        }
         return redirect('/inventaire');
     }
 
