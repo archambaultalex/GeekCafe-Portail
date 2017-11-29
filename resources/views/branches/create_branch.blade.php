@@ -100,8 +100,7 @@ use App\Image;
                 <label for="image" class="col-md-4 control-label">Image</label>
 
                 <div class="col-md-6">
-                    {{--<input class="form-control" type="file" id="image" name="image" accept="image/jpeg, image/png">--}}
-                    <input type="file" name="file-4[]" id="file-4" class="inputfile inputfile-3" data-multiple-caption="{count} files selected" multiple />
+                    <input class="" type="file" id="image" name="image" accept="image/jpeg, image/png">
                 </div>
             </div>
 
