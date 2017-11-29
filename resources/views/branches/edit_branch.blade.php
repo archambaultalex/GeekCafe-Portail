@@ -41,7 +41,7 @@ use App\Image;
                 </div>
             </div>
             <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-                <label for="phone" class="col-md-4 control-label">Phone</label>
+                <label for="phone" class="col-md-4 control-label">Téléphone</label>
 
                 <div class="col-md-6">
                     <input id="phone" type="text" class="form-control" name="phone" value="{{$branch->phone}}" required>
@@ -55,7 +55,7 @@ use App\Image;
             </div>
 
             <div class="form-group{{ $errors->has('manager_name') ? ' has-error' : '' }}">
-                <label for="manager_name" class="col-md-4 control-label">Manager Name</label>
+                <label for="manager_name" class="col-md-4 control-label">Nom du gérant</label>
 
                 <div class="col-md-6">
                     <input id="manager_name" type="text" class="form-control" name="manager_name" value="{{$branch->manager_name}}" required>
@@ -69,7 +69,7 @@ use App\Image;
             </div>
 
             <div class="form-group{{ $errors->has('manager_email') ? ' has-error' : '' }}">
-                <label for="manager_email" class="col-md-4 control-label">Manager Email </label>
+                <label for="manager_email" class="col-md-4 control-label">Couriel du gérant</label>
 
                 <div class="col-md-6">
                     <input id="manager_email" type="text" class="form-control" name="manager_email" value="{{$branch->manager_email}}" required>
@@ -83,7 +83,7 @@ use App\Image;
             </div>
 
             <div class="form-group{{ $errors->has('manager_phone') ? ' has-error' : '' }}">
-                <label for="manager_phone" class="col-md-4 control-label">Manager Phone</label>
+                <label for="manager_phone" class="col-md-4 control-label">Téléphone du gérant</label>
 
                 <div class="col-md-6">
                     <input id="manager_phone" type="text" class="form-control" name="manager_phone" value="{{$branch->manager_phone}}" required>
