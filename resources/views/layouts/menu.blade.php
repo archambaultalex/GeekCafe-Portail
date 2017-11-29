@@ -53,7 +53,10 @@
                 <a href="{{route('subitems.index')}}"><span class="title">SubItems</span></a>
                 <span class="icon-thumbnail"><i data-feather="users"></i></span>
             </li>
-
+            <li class="">
+                <a href="{{route('branches.index')}}"><span class="title">Branches</span></a>
+                <span class="icon-thumbnail"><i data-feather="users"></i></span>
+            </li>
 
         </ul>
         <div class="clearfix"></div>
