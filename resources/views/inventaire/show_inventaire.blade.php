@@ -95,7 +95,7 @@ use App\ItemType;
                                 <form style="margin-top: 15px" method="post" action=" {{route('items.destroy',$row['id'])}}">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="_method" value="DELETE"/>
-                                    <input style="color: #fff;background-color: #d12a4e;border-color: #ea2c54;" class="btn btn-primary" type="submit" value="Éffacer">
+                                    <input style="color: #fff;background-color: #d12a4e;border-color: #ea2c54;" class="btn btn-primary" type="submit" value="Effacer">
                                 </form>
                             </div>
                         </div>
