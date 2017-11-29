@@ -30,7 +30,7 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         $uniquid = 1;
-        if($request->typeid == 2)
+        if($request->typeid == 2 || $request->typeid == 5)
         {
             $this->validate($request, [
                 'name' => 'required',
@@ -107,6 +107,13 @@ class ItemController extends Controller
             ]);
         }
         else if ($request->typeid == 2) {
+            ItemPrice::create([
+                'price' => $request->prixpet,
+                'item_id' => $itemid,
+                'size_id' => 1
+            ]);
+        }
+        else if ($request->typeid == 5) {
             ItemPrice::create([
                 'price' => $request->prixpet,
                 'item_id' => $itemid,
