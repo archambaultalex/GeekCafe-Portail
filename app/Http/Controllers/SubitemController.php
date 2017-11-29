@@ -38,12 +38,12 @@ class SubitemController extends Controller
             $uniquid = uniqid();
             Image::create(['id'=>$uniquid,'image'=>$encoded]);
         }
-        if ($request->is_topping) {
+        if ($request->is_topping == "true") {
             SubItem::create([
                 'name' => $request->name,
                 'price' => $request->price,
                 'image_id' => $uniquid,
-                'is_topping' => 1
+                'is_topping' => "1",
             ]);
         }
         else
@@ -52,7 +52,7 @@ class SubitemController extends Controller
                 'name' => $request->name,
                 'price' => $request->price,
                 'image_id' => $uniquid,
-                'is_topping' => 0
+                'is_topping' => "0"
             ]);
         }
 
@@ -67,7 +67,21 @@ class SubitemController extends Controller
 
     public function update(Request $request, $id)
     {
-        SubItem::findOrFail($id)->update($request->all());
+        if($request->is_topping == "true") {
+            SubItem::findOrFail($id)->update([
+                'name' => $request->name,
+                'price' => $request->price,
+                'is_topping' => "1"
+            ]);
+        }
+        else
+        {
+            SubItem::findOrFail($id)->update([
+                'name' => $request->name,
+                'price' => $request->price,
+                'is_topping' => "0"
+            ]);
+        }
 
         if(isset($request->image)) {
             $encoded = base64_encode(file_get_contents($request->image->getrealpath()));
@@ -76,16 +90,6 @@ class SubitemController extends Controller
         }
 
         $item = SubItem::findOrFail($id);
-        $item->update($request->all());
-
-        if($request->is_topping == "true")
-        {
-            $item->update(['is_topping' => 1]);
-        }
-        else
-        {
-            $item->update(['is_topping' => 0]);
-        }
 
         if(isset($request->image)) {
             $item->update(['image_id' => $uniquid]);
