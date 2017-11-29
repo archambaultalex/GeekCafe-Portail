@@ -21,13 +21,13 @@ class PromotionController extends Controller
     public function test($id)
     {
         $item = Item::findOrFail($id);
-        return view('promotions.create_promotion',compact('item'));
+        return view('Promotions.create_promotion',compact('item'));
     }
 
     public function create($id)
     {
         $item = Item::findOrFail($id);
-        return view('promotions.create_promotion',compact('item'));
+        return view('Promotions.create_promotion',compact('item'));
     }
 
     public function store(Request $request)
@@ -53,7 +53,7 @@ class PromotionController extends Controller
     public function edit($id)
     {
         $promotion = Promotion::findOrFail($id);
-        return view('promotions.edit_promotion',compact('promotion'));
+        return view('Promotions.edit_promotion',compact('promotion'));
     }
 
     public function update(Request $request,$id)
