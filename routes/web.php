@@ -55,9 +55,9 @@ Route::resource('/subitems','SubItemController');
 
 Route::resource('/branches','BranchController');
 
-Route::get('/inventaire','inventaireController@index')->name('inventaire')->middleware('auth');
+Route::get('/inventaire','InventaireController@index')->name('inventaire')->middleware('auth');
 
-Route::post('/subitems/item','SubItemController@addItem')->name('additem')->middleware('auth');
+Route::post('/subitems/item','SubitemController@addItem')->name('additem')->middleware('auth');
 
 
 Route::get('promotions/create/{id}', [
