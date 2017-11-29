@@ -80,7 +80,7 @@ use App\Image;
                     @endif
                 </div>
             </div>
-            
+
             <div class="form-group{{ $errors->has('manager_phone') ? ' has-error' : '' }}">
                 <label for="manager_phone" class="col-md-4 control-label">Manager Phone</label>
 
