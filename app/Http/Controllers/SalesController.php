@@ -28,7 +28,6 @@ class SalesController extends Controller
     {
         $datestart = Carbon::now()->subMonth(1)->toDateString();
         $dateend = Carbon::now()->AddDay(1)->toDateString();
-//        $sales = Sales::all()->where('is_active',0)->where('created_at','>=',$datestart)->where('created_at','<=',$dateend);;
         $sales = Sales::orderBy('created_at','DESC')->get()->where('is_active',0)->where('created_at','>=',$datestart)->where('created_at','<=',$dateend);
         return view('Sales.tableau_sales',compact('sales','datestart','dateend'));
     }
@@ -37,7 +36,7 @@ class SalesController extends Controller
     {
         $datestart = $request->datestart;
         $dateend = $request->dateend;
-        $sales = Sales::all()->where('is_active',0)->where('created_at','>=',$request->datestart)->where('created_at','<=',$request->dateend);
+        $sales = Sales::orderBy('created_at','DESC')->get()->where('is_active',0)->where('created_at','>=',$request->datestart)->where('created_at','<=',$request->dateend);
         return view('Sales.tableau_sales',compact('sales','datestart','dateend'));
     }
 }

@@ -39,6 +39,7 @@ class SubitemController extends Controller
             Image::create(['id'=>$uniquid,'image'=>$encoded]);
         }
 
+        dd($request);
         SubItem::create([
             'name' => $request->name,
             'price'=>$request->price,
