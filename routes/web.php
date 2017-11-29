@@ -51,7 +51,7 @@ Route::post('/commandes/{id}/deactivate','CommandeController@deactivate')->name(
 
 Route::resource('/items','ItemController');
 
-Route::resource('/subitems','SubItemController');
+Route::resource('/subitems','SubitemController');
 
 Route::resource('/branches','BranchController');
 
