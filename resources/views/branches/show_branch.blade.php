@@ -61,7 +61,7 @@
                         <form method="post" action=" {{route('branches.destroy',$row['id'])}}">
                             {{ csrf_field() }}
                             <input type="hidden" name="_method" value="DELETE"/>
-                            <input style="color: #fff;background-color: #d12a4e;border-color: #ea2c54;" class="btn btn-primary" type="submit" value="Éffacer"></form>
+                            <input style="color: #fff;background-color: #d12a4e;border-color: #ea2c54;" class="btn btn-primary" type="submit" value="Effacer"></form>
                         </form>
                     </td>
                 </tr>
