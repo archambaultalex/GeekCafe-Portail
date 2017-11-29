@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Branch;
+use App\Image;
 class BranchController extends Controller
 {
     public function __construct()
@@ -25,6 +26,26 @@ class BranchController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'location' => 'required',
+
+        ]);
+        if(isset($request->image)) {
+            $encoded = base64_encode(file_get_contents($request->image->getrealpath()));
+            $uniquid = uniqid();
+            Image::create(['id'=>$uniquid,'image'=>$encoded]);
+        }
+        Branch::create([
+            'location' => $request->location,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'manager_name' => $request->manager_name,
+            'manager_email' => $request->manager_email,
+            'manager_phone' => $request->manager_phone,
+            'image_id' => $uniquid,
+        ]);
+
+
         return redirect ('branches');
     }
 
