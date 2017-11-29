@@ -154,6 +154,12 @@
                 document.getElementById("divPrixmoy").style.display = "none";
                 document.getElementById("divPrixgrd").style.display = "none";
             }
+            else if(type === "5")
+            {
+                document.getElementById("prixpet").innerHTML = "Prix";
+                document.getElementById("divPrixmoy").style.display = "none";
+                document.getElementById("divPrixgrd").style.display = "none";
+            }
             else
             {
                 document.getElementById("prixpet").innerHTML = "Prix Petit";
