@@ -17,7 +17,6 @@
 
                 <th style="width:10%">Image</th>
                 <th>Location</th>
-                <th>Coordinates</th>
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Manager Name</th>
@@ -33,10 +32,6 @@
 
                     <td class="v-align-middle nameTd">
                         <p>{{$row['location']}}</p>
-                    </td>
-
-                    <td class="v-align-middle">
-                        <p>{{$row['coordinates']}}</p>
                     </td>
 
                     <td class="v-align-middle">
