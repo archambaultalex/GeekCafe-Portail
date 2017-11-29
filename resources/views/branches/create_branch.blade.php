@@ -2,7 +2,7 @@
 
 @section('title')
 
-    Create Branch
+    Create Surccursale
 @endsection
 <?php
 use App\Image;

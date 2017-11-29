@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('title')
-    Branches
+    Surccursale
 @endsection
     <?php
     use App\Branch;
@@ -10,17 +10,17 @@
 
 @section('content')
     <div class="table-responsive">
-       <a class="btn btn-primary" style="float:right;background-color: #02f837; border-color: #02f837;" href="{{route('branches.create')}}">Ajouter une branch</a>
+       <a class="btn btn-primary" style="float:right;background-color: #02f837; border-color: #02f837;" href="{{route('branches.create')}}">Ajouter une Surccursale</a>
         <table class="table table-hover" id="basicTable">
             <thead>
             <tr>
 
                 <th style="width:10%">Image</th>
-                <th>Location</th>
+                <th>Address</th>
                 <th>Email</th>
-                <th>Phone</th>
-                <th>Manager Name</th>
-                <th>Manager Phone</th>
+                <th>Téléphone</th>
+                <th>Nom du gérant</th>
+                <th>Téléphone du gérant</th>
             </tr>
             </thead>
             <tbody>
