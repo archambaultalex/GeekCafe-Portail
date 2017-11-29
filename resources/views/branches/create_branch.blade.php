@@ -80,20 +80,7 @@ use App\Image;
                     @endif
                 </div>
             </div>
-
-            <div class="form-group{{ $errors->has('manager_email') ? ' has-error' : '' }}">
-                <label for="manager_email" class="col-md-4 control-label">Manager Email</label>
-
-                <div class="col-md-6">
-                    <input id="manager_email" type="text" class="form-control" name="manager_email" value="" required>
-
-                    @if ($errors->has('manager_email'))
-                        <span class="help-block">
-                                        <strong>{{ $errors->first('manager_email') }}</strong>
-                                    </span>
-                    @endif
-                </div>
-            </div>
+            
             <div class="form-group{{ $errors->has('manager_phone') ? ' has-error' : '' }}">
                 <label for="manager_phone" class="col-md-4 control-label">Manager Phone</label>
 
