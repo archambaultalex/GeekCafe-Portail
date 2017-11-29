@@ -46,7 +46,7 @@
                                 <label for="is_topping" class="col-md-4 control-label">Garniture</label>
 
                                 <div class="col-md-6">
-                                    <input id="is_topping" type="checkbox" style="margin-left: 1px;" class="" name="is_topping" value="" >
+                                    <input id="is_topping" type="checkbox" style="margin-left: 1px;" class="" name="is_topping" value="true" >
 
                                     @if ($errors->has('is_topping'))
                                         <span class="help-block">
