@@ -5,7 +5,7 @@ use App\Sales;
 use App\User;
 use App\Image;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Middleware\CheckAdmin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +27,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware(CheckAdmin::class);
 
 Route::get('/logout', function(){
     session_start();
