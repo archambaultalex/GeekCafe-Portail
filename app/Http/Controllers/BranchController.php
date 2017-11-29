@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Image;
-use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Branch;
 class BranchController extends Controller
@@ -29,7 +28,7 @@ class BranchController extends Controller
     public function store(Request $request)
     {
         $uniquid = 1;
-        $client = new Client();
+        $client = new \GuzzleHttp\Client();
 
         $res = $client->get('http://maps.google.com/maps/api/geocode/json?address='.$request->location.'&sensor=false');
         $location = json_decode($res->getBody(), true)['results'][0]['geometry']['location'];
