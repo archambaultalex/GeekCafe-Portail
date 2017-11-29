@@ -27,7 +27,11 @@
             @foreach($employes as $row)
                 <tr>
                     <td class="v-align-middle ">
-                        <img style="max-width: 40%;" src="data:image/png;base64,{{Image::findOrFail($row['image_id'])->image}}"/>
+                        @if ( base64_encode(base64_decode(Image::findOrFail($row['image_id'])->image, true)) === Image::findOrFail($row['image_id'])->image)
+                            <img style="max-width: 40%;" src="data:image/png;base64,{{Image::findOrFail($row['image_id'])->image}}"/>
+                        @else
+                            <img style="max-width: 40%;" src="{{Image::findOrFail($row['image_id'])->image}}"/>
+                        @endif
                     </td>
                     <td>{{$row['first_name']}}</td>
                     <td>{{$row['last_name']}}</td>

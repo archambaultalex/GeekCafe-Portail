@@ -39,7 +39,11 @@ use App\Item;use App\ItemType;
             @foreach($data as $row)
                 <tr>
                     <td class="v-align-middle ">
-                        <img style="max-width: 40%;" src="data:image/png;base64,{{App\Image::findOrFail($row['image_id'])->image}}"/>
+                        @if ( base64_encode(base64_decode(Image::findOrFail($row['image_id'])->image, true)) === Image::findOrFail($row['image_id'])->image)
+                            <img style="max-width: 40%;" src="data:image/png;base64,{{Image::findOrFail($row['image_id'])->image}}"/>
+                        @else
+                            <img style="max-width: 40%;" src="{{Image::findOrFail($row['image_id'])->image}}"/>
+                        @endif
                     </td>
 
                     <td class="v-align-middle nameTd">
