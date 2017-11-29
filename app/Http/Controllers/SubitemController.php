@@ -30,7 +30,7 @@ class SubitemController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'price'=>'required|numeric'
+            'price'=>'required|numeric',
         ]);
 
         if(isset($request->image)) {
@@ -43,6 +43,7 @@ class SubitemController extends Controller
             'name' => $request->name,
             'price'=>$request->price,
             'image_id'=>$uniquid,
+            'is_topping' => $request->is_topping
         ]);
 
         return redirect('subitems');
@@ -56,8 +57,6 @@ class SubitemController extends Controller
 
     public function update(Request $request, $id)
     {
-
-
         SubItem::findOrFail($id)->update($request->all());
 
         if(isset($request->image)) {
