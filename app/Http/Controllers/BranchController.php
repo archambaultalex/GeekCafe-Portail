@@ -74,7 +74,7 @@ class BranchController extends Controller
             'manager_phone' => 'required|phone:US,CA|',
         ]);
 
-        $client = new Client();
+        $client = new \GuzzleHttp\Client();
 
         $res = $client->get('http://maps.google.com/maps/api/geocode/json?address='.$request->location.'&sensor=false');
         $location = json_decode($res->getBody(), true)['results'][0]['geometry']['location'];
