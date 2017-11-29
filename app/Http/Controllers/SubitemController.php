@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Image;
 use App\ItemSubItem;
 use Illuminate\Http\Request;
-Use App\SubItem;
+Use App\Subitem;
 
 class SubitemController extends Controller
 {
