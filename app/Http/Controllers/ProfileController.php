@@ -35,6 +35,7 @@ class ProfileController extends Controller
 
     public function update(Request $request, $id)
     {
+
         $this->validate($request,[
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
@@ -44,7 +45,7 @@ class ProfileController extends Controller
             ],
             'gender' => 'required|string|max:255',
             'birth_date' => 'required|date|max:255',
-            'phone_number' => 'required|string|phone:US,CA',
+            'phone' => 'required|string|phone:US,CA',
         ]);
 
         if(isset($request->image)) {

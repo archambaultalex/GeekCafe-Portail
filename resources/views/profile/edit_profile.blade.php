@@ -1,6 +1,6 @@
 @extends('layouts.template')
 @section('title')
-    Profile
+    Profil
     @endsection
 
 @section('content')
@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Register</div>
+                    <div class="panel-heading">Inscription</div>
 
                     <div class="panel-body">
                         <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ route('profile.update',$profile->id) }}">
@@ -17,7 +17,7 @@
 
                             <input type="hidden" name="_method" value="PUT"/>
                             <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
-                                <label for="name" class="col-md-4 control-label">First Name</label>
+                                <label for="name" class="col-md-4 control-label">Prénom</label>
 
                                 <div class="col-md-6">
                                     <input id="first-name" type="text" class="form-control" name="first_name" value="{{ $profile->first_name }}" required autofocus>
@@ -33,7 +33,7 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
-                                <label for="name" class="col-md-4 control-label">Last Name</label>
+                                <label for="name" class="col-md-4 control-label">Nom de famille</label>
 
                                 <div class="col-md-6">
                                     <input id="last-name" type="text" class="form-control" name="last_name" value="{{$profile->last_name }}" required autofocus>
@@ -47,7 +47,7 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                                <label for="email" class="col-md-4 control-label">Courriel</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control" name="email" value="
@@ -66,7 +66,7 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
-                                <label for="gender" class="col-md-4 control-label">Gender</label>
+                                <label for="gender" class="col-md-4 control-label">Genre</label>
 
                                 <div class="col-md-6">
                                     <select name="gender" id="gender" class="form-control" required>
@@ -84,7 +84,7 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('birth_date') ? ' has-error' : '' }}">
-                                <label for="birth-date" class="col-md-4 control-label">Birth Date</label>
+                                <label for="birth-date" class="col-md-4 control-label">Date de naissance</label>
 
                                 <div class="col-md-6">
                                     <input id="birth-date" type="date" class="form-control" name="birth_date" value="{{ $profile->birth_date }}" required>
@@ -97,14 +97,14 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }}">
-                                <label for="phone_number" class="col-md-4 control-label">Phone Number</label>
+                            <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                                <label for="phone" class="col-md-4 control-label">Téléphone</label>
 
                                 <div class="col-md-6">
-                                    <input id="phone_number" type="text" class="form-control" name="phone_number" value="{{ $profile->phone }}" required>
-                                    @if ($errors->has('phone_number'))
+                                    <input id="phone" type="text" class="form-control" name="phone" value="{{ $profile->phone }}" required>
+                                    @if ($errors->has('phone'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('phone_number') }}</strong>
+                                        <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
                                     @endif
                                 </div>

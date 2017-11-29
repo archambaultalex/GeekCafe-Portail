@@ -91,9 +91,9 @@
                         </div>
                         <div class="">
                             <h5 class="logged hint-text no-margin">
-                                Login as
+                                Connexion
                             </h5>
-                            <h2 class="name no-margin">Administrator</h2>
+                            <h2 class="name no-margin">Administrateur</h2>
                         </div>
                     </div>
                     <!-- END Lock Screen User Info -->
@@ -106,7 +106,7 @@
                             <div class="col-md-12">
                                 <!-- START Form Control -->
                                 <div class="form-group form-group-default sm-m-t-30 {{ $errors->has('email') ? ' has-error' : '' }}">
-                                    <label>Username</label>
+                                    <label>Pseudonyme</label>
                                     <div class="controls">
                                         <input id="email" type="email" style="border-radius:0 !important" class="form-control " name="email" value="{{ old('email') }}" required autofocus>
 
@@ -118,7 +118,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group form-group-default sm-m-t-30 {{ $errors->has('email') ? ' has-error' : '' }}">
-                                    <label>Password</label>
+                                    <label>Mot de passe</label>
                                     <div class="controls">
                                         <input style="border-radius:0 !important" id="password" type="password" class="form-control" name="password" required>
 
@@ -133,10 +133,10 @@
                                 <div class="form-group">
                                     <div class="">
                                         <button type="submit" class="btn btn-primary-geek">
-                                            Login
+                                            Connexion
                                         </button>
                                         <a href="{{route('register')}}" class="btn btn-primary-geek">
-                                            Register
+                                            S'inscrire
                                         </a>
 
                                     </div>
