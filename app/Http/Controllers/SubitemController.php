@@ -83,7 +83,8 @@ class SubitemController extends Controller
 
     public function addItem(Request $request)
     {
-        ItemSubItem::firstOrCreate(['item_id'=> $request->otherid, 'subitem_id'=> $request->itemselect]);
+//        dd($request);
+        ItemSubItem::firstOrCreate(['item_id'=> $request->itemselect, 'subitem_id'=> $request->otherid]);
         return redirect('subitems');
     }
 }
