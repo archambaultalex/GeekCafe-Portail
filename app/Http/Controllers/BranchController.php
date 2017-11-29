@@ -22,7 +22,7 @@ class BranchController extends Controller
     public function create()
     {
 
-        return view('Branches.create_branch');
+        return view('branches.create_branch');
     }
 
     public function store(Request $request)
