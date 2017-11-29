@@ -1,11 +1,52 @@
 @extends('layouts.template')
 
-@section('title') Acceuil @endsection
+@section('title') Items @endsection
 <?php
 use App\Image;
 use App\ItemType;
 ?>
 @section('content')
+    {{--<style>--}}
+        {{--/*  SECTIONS  */--}}
+        {{--.section {--}}
+            {{--clear: both;--}}
+            {{--padding: 0px;--}}
+            {{--margin: 0px;--}}
+        {{--}--}}
+
+        {{--/*  COLUMN SETUP  */--}}
+        {{--.col {--}}
+            {{--display: block;--}}
+            {{--float:left;--}}
+            {{--margin: 1% 0 1% 1.6%;--}}
+        {{--}--}}
+        {{--.col:first-child { margin-left: 0; }--}}
+
+        {{--/*  GROUPING  */--}}
+        {{--.group:before,--}}
+        {{--.group:after { content:""; display:table; }--}}
+        {{--.group:after { clear:both;}--}}
+        {{--.group { zoom:1; /* For IE 6/7 */ }--}}
+        {{--/*  GRID OF TWO  */--}}
+        {{--.span_2_of_2 {--}}
+            {{--width: 100%;--}}
+        {{--}--}}
+        {{--.span_1_of_2 {--}}
+            {{--width: 49.2%;--}}
+        {{--}--}}
+
+        {{--/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */--}}
+
+        {{--@media only screen and (max-width: 480px) {--}}
+            {{--.col {--}}
+                {{--margin: 1% 0 1% 0%;--}}
+            {{--}--}}
+        {{--}--}}
+
+        {{--@media only screen and (max-width: 480px) {--}}
+            {{--.span_2_of_2, .span_1_of_2 { width: 100%; }--}}
+        {{--}--}}
+    {{--</style>--}}
 
     <div class="table-responsive">
          <a class="btn btn-primary" style="float:right;background-color: #02f837; border-color: #02f837;" href="{{route('items.create')}}">Ajouter un item</a>
@@ -41,14 +82,23 @@ use App\ItemType;
                         <p>{{ItemType::findOrFail($row['type_id'])->name}}</p>
                     </td>
 
-                    <td style="text-align: center" class="v-align-middle">
+                    <td class="v-align-middle">
                         <a class="btn btn-primary" href="{{route('promotions.create',$row['id'])}}">Ajouter une Promotion</a>
-                        <a style="margin-top:15px" class="btn btn-primary" href="{{route('items.edit',$row['id'])}}">Modifier</a>
-                        <form style="margin-top: 15px" method="post" action=" {{route('items.destroy',$row['id'])}}">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="_method" value="DELETE"/>
-                            <input style="color: #fff;background-color: #d12a4e;border-color: #ea2c54;" class="btn btn-primary" type="submit" value="Éffacer">
-                        </form>
+                    </td>
+
+                    <td style="text-align: center" class="v-align-middle">
+                        <div class="section group">
+                            <div class="col span_1_of_2">
+                                <a style="margin-top:15px" class="btn btn-primary" href="{{route('items.edit',$row['id'])}}">Modifier</a>
+                            </div>
+                            <div class="col span_1_of_2">
+                                <form style="margin-top: 15px" method="post" action=" {{route('items.destroy',$row['id'])}}">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="_method" value="DELETE"/>
+                                    <input style="color: #fff;background-color: #d12a4e;border-color: #ea2c54;" class="btn btn-primary" type="submit" value="Effacer">
+                                </form>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             @endforeach

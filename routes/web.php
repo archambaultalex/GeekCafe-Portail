@@ -53,6 +53,8 @@ Route::resource('/items','ItemController');
 
 Route::resource('/subitems','SubItemController');
 
+Route::resource('/branches','BranchController');
+
 Route::get('/inventaire','inventaireController@index')->name('inventaire')->middleware('auth');
 
 Route::post('/subitems/item','SubItemController@addItem')->name('additem')->middleware('auth');
@@ -85,3 +87,4 @@ Route::get('/employes',function()
 Route::get('/ventes/tableau', 'SalesController@tableau')->name('ventes.tableau')->middleware('auth');
 
 Route::post('/ventes/filtrer','SalesController@filtrer')->name('ventes.filtrer')->middleware('auth');
+

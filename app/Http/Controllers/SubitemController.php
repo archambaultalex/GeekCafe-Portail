@@ -30,7 +30,7 @@ class SubitemController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'price'=>'required|numeric'
+            'price'=>'required|numeric',
         ]);
 
         if(isset($request->image)) {
@@ -38,12 +38,23 @@ class SubitemController extends Controller
             $uniquid = uniqid();
             Image::create(['id'=>$uniquid,'image'=>$encoded]);
         }
-
-        SubItem::create([
-            'name' => $request->name,
-            'price'=>$request->price,
-            'image_id'=>$uniquid,
-        ]);
+        if ($request->is_topping == "true") {
+            SubItem::create([
+                'name' => $request->name,
+                'price' => $request->price,
+                'image_id' => $uniquid,
+                'is_topping' => "1",
+            ]);
+        }
+        else
+        {
+            SubItem::create([
+                'name' => $request->name,
+                'price' => $request->price,
+                'image_id' => $uniquid,
+                'is_topping' => "0"
+            ]);
+        }
 
         return redirect('subitems');
     }
@@ -56,9 +67,21 @@ class SubitemController extends Controller
 
     public function update(Request $request, $id)
     {
-
-
-        SubItem::findOrFail($id)->update($request->all());
+        if($request->is_topping == "true") {
+            SubItem::findOrFail($id)->update([
+                'name' => $request->name,
+                'price' => $request->price,
+                'is_topping' => "1"
+            ]);
+        }
+        else
+        {
+            SubItem::findOrFail($id)->update([
+                'name' => $request->name,
+                'price' => $request->price,
+                'is_topping' => "0"
+            ]);
+        }
 
         if(isset($request->image)) {
             $encoded = base64_encode(file_get_contents($request->image->getrealpath()));
@@ -67,7 +90,7 @@ class SubitemController extends Controller
         }
 
         $item = SubItem::findOrFail($id);
-        $item->update($request->all());
+
         if(isset($request->image)) {
             $item->update(['image_id' => $uniquid]);
         }
@@ -83,7 +106,8 @@ class SubitemController extends Controller
 
     public function addItem(Request $request)
     {
-        ItemSubItem::firstOrCreate(['item_id'=> $request->otherid, 'subitem_id'=> $request->itemselect]);
+//        dd($request);
+        ItemSubItem::firstOrCreate(['item_id'=> $request->itemselect, 'subitem_id'=> $request->otherid]);
         return redirect('subitems');
     }
 }

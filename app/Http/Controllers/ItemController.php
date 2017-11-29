@@ -30,14 +30,25 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         $uniquid = 1;
-        $this->validate($request, [
-            'name' => 'required',
-            'description'=>'required',
-            'typeid' => 'required',
-            'prixpet' => 'required|numeric',
-            'prixmoy' => 'required|numeric',
-            'prixgrd' => 'required|numeric',
-        ]);
+        if($request->typeid == 2)
+        {
+            $this->validate($request, [
+                'name' => 'required',
+                'description' => 'required',
+                'typeid' => 'required',
+                'prixpet' => 'required|numeric',
+            ]);
+        }
+        else {
+            $this->validate($request, [
+                'name' => 'required',
+                'description' => 'required',
+                'typeid' => 'required',
+                'prixpet' => 'required|numeric',
+                'prixmoy' => 'required|numeric',
+                'prixgrd' => 'required|numeric',
+            ]);
+        }
 
         if(isset($request->image)) {
             $encoded = base64_encode(file_get_contents($request->image->getrealpath()));
@@ -73,6 +84,33 @@ class ItemController extends Controller
                 'price' => $request->prixgrd,
                 'item_id' => $itemid,
             'size_id' => 6
+            ]);
+        }
+        else if($request->typeid == 4)
+        {
+            ItemPrice::create([
+                'price' => $request->prixpet,
+                'item_id' => $itemid,
+                'size_id' => 6
+            ]);
+
+            ItemPrice::create([
+                'price' => $request->prixmoy,
+                'item_id' => $itemid,
+                'size_id' => 7
+            ]);
+
+            ItemPrice::create([
+                'price' => $request->prixgrd,
+                'item_id' => $itemid,
+                'size_id' => 8
+            ]);
+        }
+        else if ($request->typeid == 2) {
+            ItemPrice::create([
+                'price' => $request->prixpet,
+                'item_id' => $itemid,
+                'size_id' => 1
             ]);
         }
         else {

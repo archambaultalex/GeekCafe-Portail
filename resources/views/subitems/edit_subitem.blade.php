@@ -40,6 +40,23 @@
                                 </div>
                             </div>
 
+                            <div class="form-group{{ $errors->has('is_topping') ? ' has-error' : '' }}">
+                                <label for="is_topping" class="col-md-4 control-label">Garniture</label>
+
+                                <div class="col-md-6">
+                                    @if($item->is_topping == "1")
+                                        <input id="is_topping" type="checkbox" style="margin-left: 1px;" class="" name="is_topping" value="true" checked>
+                                    @else
+                                        <input id="is_topping" type="checkbox" style="margin-left: 1px;" class="" name="is_topping" value="true" >
+                                    @endif
+                                    @if ($errors->has('is_topping'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('is_topping') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
 
                             <div class="form-group">
                                 <label for="image" class="col-md-4 control-label">Image</label>

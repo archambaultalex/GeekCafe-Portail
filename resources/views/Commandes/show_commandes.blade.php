@@ -30,7 +30,7 @@ use App\ItemSize;
                 ifr.style.display = 'none';
                 ifrHidden.style.display = 'block';
 
-            }
+            };
             ifrHidden.src = "http://guijethostingtools.com/test2";
 
         }
