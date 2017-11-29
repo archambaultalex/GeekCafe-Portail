@@ -42,25 +42,11 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('quantity') ? ' has-error' : '' }}">
-                                <label for="quantity" class="col-md-4 control-label">Quantité</label>
-
-                                <div class="col-md-6">
-                                    <input id="quantity" type="text" class="form-control" name="quantity" value="" required>
-
-                                    @if ($errors->has('quantity'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('quantity') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
                             <div class="form-group{{ $errors->has('typeid') ? ' has-error' : '' }}">
                                 <label for="typeid" class="col-md-4 control-label">Type</label>
 
                                 <div class="col-md-6">
-                                    <select name="typeid" id="gender" class="form-control" required>
+                                    <select name="typeid" id="type" class="form-control" onchange="changeText()" required>
 
                                         <?php
                                             $itemTypes = ItemType::all();
@@ -73,6 +59,48 @@
                                     @if ($errors->has('typeid'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('typeid') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('prixpet') ? ' has-error' : '' }}">
+                                <label for="prixpet" id="prixpet" class="col-md-4 control-label">Prix petit</label>
+
+                                <div class="col-md-6">
+                                    <input id="prixpet" type="text" class="form-control" name="prixpet" required autofocus>
+
+                                    @if ($errors->has('prixpet'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('prixpet') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div id="divPrixmoy" class="form-group{{ $errors->has('prixmoy') ? ' has-error' : '' }}">
+                                <label for="prixmoy" id="prixmoy" class="col-md-4 control-label">Prix Moyen</label>
+
+                                <div class="col-md-6">
+                                    <input id="prixmoy" type="text" class="form-control" name="prixmoy"  autofocus>
+
+                                    @if ($errors->has('prixmoy'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('prixmoy') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div id="divPrixgrd" class="form-group{{ $errors->has('prixgrd') ? ' has-error' : '' }}">
+                                <label for="prixgrd" id="prixgrd" class="col-md-4 control-label">Prix Grand</label>
+
+                                <div class="col-md-6">
+                                    <input id="prixgrd" type="text" class="form-control" name="prixgrd"  autofocus>
+
+                                    @if ($errors->has('prixgrd'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('prixgrd') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -97,4 +125,41 @@
                             </div>
                         </form>
                     </div>
+
+    <script>
+        function changeText()
+        {
+            var type = document.getElementById("type").value;
+            document.getElementById("prixpet").style.display = "block";
+            document.getElementById("prixmoy").style.display = "block";
+            document.getElementById("prixgrd").style.display = "block";
+            document.getElementById("divPrixmoy").style.display = "block";
+            document.getElementById("divPrixgrd").style.display = "block";
+
+            if(type === "3")
+            {
+                document.getElementById("prixpet").innerHTML = "1 choix";
+                document.getElementById("prixmoy").innerHTML = "2 choix";
+                document.getElementById("prixgrd").innerHTML = "3 choix";
+            }
+            else if(type === "4")
+            {
+                document.getElementById("prixpet").innerHTML = "3 choix";
+                document.getElementById("prixmoy").innerHTML = "5 choix";
+                document.getElementById("prixgrd").innerHTML = "7 choix";
+            }
+            else if(type === "2")
+            {
+                document.getElementById("prixpet").innerHTML = "Prix";
+                document.getElementById("divPrixmoy").style.display = "none";
+                document.getElementById("divPrixgrd").style.display = "none";
+            }
+            else
+            {
+                document.getElementById("prixpet").innerHTML = "Prix Petit";
+                document.getElementById("prixmoy").innerHTML = "Prix Moyen";
+                document.getElementById("prixgrd").innerHTML = "Prix Grand";
+            }
+        }
+    </script>
 @endsection
