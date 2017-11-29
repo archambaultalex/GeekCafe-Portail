@@ -38,13 +38,23 @@ class SubitemController extends Controller
             $uniquid = uniqid();
             Image::create(['id'=>$uniquid,'image'=>$encoded]);
         }
-
-        SubItem::create([
-            'name' => $request->name,
-            'price'=>$request->price,
-            'image_id'=>$uniquid,
-            'is_topping' => $request->is_topping
-        ]);
+        if ($request->is_topping) {
+            SubItem::create([
+                'name' => $request->name,
+                'price' => $request->price,
+                'image_id' => $uniquid,
+                'is_topping' => 1
+            ]);
+        }
+        else
+        {
+            SubItem::create([
+                'name' => $request->name,
+                'price' => $request->price,
+                'image_id' => $uniquid,
+                'is_topping' => 0
+            ]);
+        }
 
         return redirect('subitems');
     }
@@ -67,6 +77,16 @@ class SubitemController extends Controller
 
         $item = SubItem::findOrFail($id);
         $item->update($request->all());
+
+        if($request->is_topping == "true")
+        {
+            $item->update(['is_topping' => 1]);
+        }
+        else
+        {
+            $item->update(['is_topping' => 0]);
+        }
+
         if(isset($request->image)) {
             $item->update(['image_id' => $uniquid]);
         }
