@@ -54,7 +54,7 @@
                 <span class="icon-thumbnail"><i data-feather="users"></i></span>
             </li>
             <li class="">
-                <a href="{{route('branches.index')}}"><span class="title">Branches</span></a>
+                <a href="{{route('branches.index')}}"><span class="title">Succursales</span></a>
                 <span class="icon-thumbnail"><i data-feather="users"></i></span>
             </li>
 
