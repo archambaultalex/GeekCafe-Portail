@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Image;
 use Illuminate\Http\Request;
 use App\Branch;
 class BranchController extends Controller
@@ -26,19 +27,10 @@ class BranchController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'city' => 'required',
-            'address' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'fax' => 'required',
-            'phone_no_fee' => 'required',
-        ]);
-
+        $uniquid = 1;
         $client = new \GuzzleHttp\Client();
 
-        $res = $client->get('http://maps.google.com/maps/api/geocode/json?address='.$request->address.'&sensor=false');
+        $res = $client->get('http://maps.google.com/maps/api/geocode/json?address='.$request->location.'&sensor=false');
         $location = json_decode($res->getBody(), true)['results'][0]['geometry']['location'];
 
         if(isset($request->image)) {
@@ -48,14 +40,15 @@ class BranchController extends Controller
         }
 
         Branch::create([
-            'name' => $request->name,
-            'city' => $request->city,
-            'address' => $request->address,
-            'email' => $request->email,
+            'location' => $request->location,
             'coordinates' => $location['lat'].','.$location['lng'],
+            'email' => $request->email,
             'phone' => $request->phone,
-            'fax' => $request->fax,
-            'phone_no_fee' => $request->phone_no_fee,
+            'manager_name' => $request->manager_name,
+            'manager_email' => $request->manager_email,
+            'manager_phone' => $request->manager_phone,
+            'num_tax1' => "0",
+            'num_tax2' => "0",
             'image_id' => $uniquid,
         ]);
 
@@ -65,11 +58,48 @@ class BranchController extends Controller
     public function edit($id)
     {
         $branch = Branch::findOrFail($id);
-        return view('Branches.edit_branch',compact('branch'));
+        return view('branches.edit_branch',compact('branch'));
     }
 
     public function update(Request $request, $id)
     {
+        $uniquid = 1;
+        $brench = Branch::findOrFail($id);
+        $this->validate($request, [
+            'location' => 'required',
+            'email' => 'required',
+            'phone' => 'required|phone:US,CA|',
+            'manager_name' => 'required',
+            'manager_email' => 'required',
+            'manager_phone' => 'required|phone:US,CA|',
+        ]);
+
+        $client = new \GuzzleHttp\Client();
+
+        $res = $client->get('http://maps.google.com/maps/api/geocode/json?address='.$request->location.'&sensor=false');
+        $location = json_decode($res->getBody(), true)['results'][0]['geometry']['location'];
+
+        if(isset($request->image)) {
+            $encoded = base64_encode(file_get_contents($request->image->getrealpath()));
+            $uniquid = uniqid();
+            Image::create(['id'=>$uniquid,'image'=>$encoded]);
+        }
+
+        $brench->update([
+            'location' => $request->location,
+            'coordinates' => $location['lat'].','.$location['lng'],
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'manager_name' => $request->manager_name,
+            'manager_email' => $request->manager_email,
+            'manager_phone' => $request->manager_phone,
+            'num_tax1' => "0",
+            'num_tax2' => "0",
+        ]);
+
+        if(isset($request->image)) {
+            $brench->update(['image_id' => $uniquid]);
+        }
         return redirect('branches');
     }
 
